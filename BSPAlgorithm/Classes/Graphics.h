@@ -15,13 +15,16 @@ class Graphics {
 private:
     SDL_Surface* surface;
     SDL_Window * window;
-    Rect frame;
+    uint32_t* pixels;
+    Rect frame;    
 public:
-    Graphics(SDL_Surface* surface, SDL_Window * window, Rect frame):
-    surface(surface), window(window), frame(frame) {}
-    void drawTest();
+    Graphics(SDL_Surface* surface, SDL_Window * window);
 
     void drawPoint(Point p, Color c);
+    void drawLine(Point from, Point to, Color c);
+    void drawRect(Rect r, Color c);
+    void drawCircle(Point center, int radius, Color color);
+    void update();
 };
 
 #endif /* Graphics_hpp */

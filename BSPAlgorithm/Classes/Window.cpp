@@ -71,6 +71,6 @@ Point Window::getPosition() {
     return p;
 }
 
-Graphics* Window::getGraphics() {
-    return new Graphics(surface, window, getFrame());
+Graphics Window::getGraphics() {
+    return Graphics(surface, window);
 }

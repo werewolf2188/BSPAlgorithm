@@ -9,9 +9,6 @@
 #include "Structs.h"
 
 Color makeFromRGBA(long color) {
-    if (color < 0xFFFFFF) {
-        return { 0, 0, 0, 0};
-    }
     uint8_t r = (color & 0xFF000000) >> 24;
     uint8_t g = (color & 0x00FF0000) >> 16;
     uint8_t b = (color & 0x0000FF00) >> 8;
@@ -31,3 +28,6 @@ Color makeFromRGB(long color) {
 
 Color WHITE = makeFromRGBA(0xFFFFFFFF);
 Color BLACK = makeFromRGBA(0x00000000);
+Color RED = makeFromRGBA(0xFF0000FF);
+Color GREEN = makeFromRGBA(0x00FF00FF);
+Color BLUE = makeFromRGBA(0x0000FFFF);
