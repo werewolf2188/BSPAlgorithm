@@ -12,9 +12,15 @@
 int main(int argc, const char * argv[]) {
     // insert code here...
     Window w;
-    Graphics* g = w.getGraphics();
-    g->drawPoint({ 100, 100 }, BLACK);
+    Graphics g = w.getGraphics();
+    g.drawLine({ 100, 100 }, { 300, 200} , RED); //DIAGONAL
+    g.drawLine({ 100, 100 }, { 100, 300} , GREEN); //VERTICAL
+    g.drawLine({ 100, 100 }, { 300, 100} , BLUE); //HORIZONTAL
+    g.drawRect({{ 1200, 800}, {50, 50}}, BLACK);
+    g.drawCircle({ 500, 500 }, 50, BLACK);
+    g.drawDisk({ 700, 500 }, 50, BLACK);
+    g.update();
+    g.clear();
     w.show();
-    delete g;
     return 0;
 }

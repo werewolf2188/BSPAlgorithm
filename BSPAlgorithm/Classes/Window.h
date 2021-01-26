@@ -29,7 +29,7 @@ public:
     Size getSize();
     Point getPosition();
     
-    Graphics* getGraphics();
+    Graphics getGraphics();
 };
 
 
