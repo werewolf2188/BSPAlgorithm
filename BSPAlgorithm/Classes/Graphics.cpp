@@ -115,9 +115,8 @@ void _drawLine(SDL_Surface* surface, int x1, int y1, int x2, int y2, Color c) {
 Graphics::Graphics(SDL_Surface* surface, SDL_Window * window):
 surface(surface), window(window) {
     // Work with buffers
-//    int count = (surface->w * surface->h);
-//    pixels = (uint32_t*) calloc(count, sizeof(uint32_t));
-//    memcpy(pixels, (uint32_t*)surface->pixels, count);
+//    pixels = malloc(surface->w * surface->h * sizeof(uint32_t));
+//    SDL_memset(pixels, 0xAA00FF22, surface->w * surface->h * sizeof(uint32_t));
 }
 
 void Graphics::drawPoint(Point p, Color c) {

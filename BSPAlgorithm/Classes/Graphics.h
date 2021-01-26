@@ -15,7 +15,7 @@ class Graphics {
 private:
     SDL_Surface* surface;
     SDL_Window * window;
-    uint32_t* pixels;
+    void* pixels;
     Rect frame;    
 public:
     Graphics(SDL_Surface* surface, SDL_Window * window);
