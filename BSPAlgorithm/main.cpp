@@ -18,7 +18,9 @@ int main(int argc, const char * argv[]) {
     g.drawLine({ 100, 100 }, { 300, 100} , BLUE); //HORIZONTAL
     g.drawRect({{ 1200, 800}, {50, 50}}, BLACK);
     g.drawCircle({ 500, 500 }, 50, BLACK);
+    g.drawDisk({ 700, 500 }, 50, BLACK);
     g.update();
+    g.clear();
     w.show();
     return 0;
 }

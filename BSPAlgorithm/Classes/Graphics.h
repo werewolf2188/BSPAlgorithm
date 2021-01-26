@@ -24,6 +24,8 @@ public:
     void drawLine(Point from, Point to, Color c);
     void drawRect(Rect r, Color c);
     void drawCircle(Point center, int radius, Color color);
+    void drawDisk(Point center, int radius, Color color);
+    void clear();
     void update();
 };
 

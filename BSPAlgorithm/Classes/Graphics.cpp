@@ -114,6 +114,7 @@ void _drawLine(SDL_Surface* surface, int x1, int y1, int x2, int y2, Color c) {
 // MARK: Graphics
 Graphics::Graphics(SDL_Surface* surface, SDL_Window * window):
 surface(surface), window(window) {
+    // Work with buffers
 //    int count = (surface->w * surface->h);
 //    pixels = (uint32_t*) calloc(count, sizeof(uint32_t));
 //    memcpy(pixels, (uint32_t*)surface->pixels, count);
@@ -176,6 +177,42 @@ void Graphics::drawCircle(Point center, int radius, Color color) {
     }
 }
 
+void Graphics::drawDisk(Point center, int radius, Color color) {
+    if(center.x + radius < 0 || center.x - radius >= surface->w || center.y + radius < 0 || center.y - radius >= surface->h) return; //every single pixel outside screen, so don't waste time on it
+    int xc = center.x;
+    int yc = center.y;
+    int x = 0;
+    int y = radius;
+    int p = 3 - (radius << 1);
+    int a, b, c, d, e, f, g, h;
+    int pb = yc + radius + 1, pd = yc + radius + 1; //previous values: to avoid drawing horizontal lines multiple times  (ensure initial value is outside the range)
+    while (x <= y)
+    {
+         // write data
+        a = xc + x;
+        b = yc + y;
+        c = xc - x;
+        d = yc - y;
+        e = xc + y;
+        f = yc + x;
+        g = xc - y;
+        h = yc - x;
+        if(b != pb) _horLine(surface, b, a, c, color);
+        if(d != pd) _horLine(surface, d, a, c, color);
+        if(f != b)  _horLine(surface, f, e, g, color);
+        if(h != d && h != f) _horLine(surface, h, e, g, color);
+        pb = b;
+        pd = d;
+        if(p < 0) p += (x++ << 2) + 6;
+        else p += ((x++ - y--) << 2) + 10;
+    }
+}
+
 void Graphics::update() {
     SDL_UpdateWindowSurface(window);
+}
+
+void Graphics::clear() {
+    SDL_FillRect(surface, NULL, SDL_MapRGB( surface->format, WHITE.r, WHITE.g, WHITE.b));
+    update();
 }
