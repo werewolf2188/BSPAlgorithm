@@ -8,6 +8,7 @@
 #ifndef Color_h
 #define Color_h
 #include <stdint.h>
+#include <SDL2/SDL_scancode.h>
 
 // MARK: Color
 struct Color {
@@ -33,6 +34,10 @@ struct Point {
     int y;
 };
 
+inline bool operator==(Point p1, Point p2) {
+    return p1.x == p2.x && p1.y == p2.y;
+}
+
 // MARK: Size
 
 struct Size {
@@ -40,20 +45,16 @@ struct Size {
     int height;
 };
 
+inline bool operator==(Size s1, Size s2) {
+    return s1.width == s2.width && s1.height == s2.height;
+}
+
 // MARK: Rect
 
 struct Rect {
     Point position;
     Size size;
 };
-
-inline bool operator==(Point p1, Point p2) {
-    return p1.x == p2.x && p1.y == p2.y;
-}
-
-inline bool operator==(Size s1, Size s2) {
-    return s1.width == s2.width && s1.height == s2.height;
-}
 
 inline bool operator==(Rect r1, Rect r2) {
     return r1.position == r2.position && r1.size == r2.size;
