@@ -27,20 +27,14 @@ void Window::initialize_surface() {
 
 void Window::initialize_event_loop() {
     if (window) {
-        SDL_Event e;
-        bool quit = false;
-        while (!quit) {
-            while (SDL_PollEvent(&e)) {
-                if (e.type == SDL_QUIT) {
-                    quit = true;
-                }
-            }
+        if (gameLoop) {
+            gameLoop->start(getGraphics());
         }
     }
 };
 
 // MARK: Public methods
-Window::Window() {
+Window::Window(GameLoop* gameLoop): gameLoop(gameLoop) {
     initialize_window();
     initialize_surface();
 };
@@ -71,6 +65,6 @@ Point Window::getPosition() {
     return p;
 }
 
-Graphics Window::getGraphics() {
-    return Graphics(surface, window);
+Graphics* Window::getGraphics() {
+    return new Graphics(surface, window);
 }

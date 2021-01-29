@@ -9,6 +9,7 @@
 #define Window_hpp
 #include <SDL2/SDL.h>
 #include "Structs.h"
+#include "GameLoop.h"
 
 class Graphics;
 
@@ -16,12 +17,13 @@ class Window {
 private:
     SDL_Surface *surface = NULL;
     SDL_Window *window = NULL;
+    GameLoop *gameLoop;
 
     void initialize_window(void);
     void initialize_surface(void);
     void initialize_event_loop(void);
 public:
-    Window();
+    Window(GameLoop* gameLoop);
     ~Window();
 
     void show();
@@ -29,7 +31,7 @@ public:
     Size getSize();
     Point getPosition();
     
-    Graphics getGraphics();
+    Graphics* getGraphics();
 };
 
 

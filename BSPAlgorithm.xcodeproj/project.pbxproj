@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C22A113525BFCA9700113500 /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22A113325BFCA9700113500 /* GameLoop.cpp */; };
 		C2DDB0E525BCF45400BB5E41 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB0E425BCF45400BB5E41 /* main.cpp */; };
 		C2DDB0F025BCF62B00BB5E41 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DDB0EF25BCF62B00BB5E41 /* SDL2.framework */; };
 		C2DDB0F725BCF83700BB5E41 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB0F525BCF83700BB5E41 /* Window.cpp */; };
@@ -27,6 +28,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C22A113325BFCA9700113500 /* GameLoop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameLoop.cpp; sourceTree = "<group>"; };
+		C22A113425BFCA9700113500 /* GameLoop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameLoop.h; sourceTree = "<group>"; };
+		C22D12EB25C2648D00DA268C /* Keyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Keyboard.h; sourceTree = "<group>"; };
+		C22D12ED25C2656000DA268C /* Mouse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mouse.h; sourceTree = "<group>"; };
+		C22D12EF25C265A800DA268C /* Sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		C2DDB0E125BCF45400BB5E41 /* BSPAlgorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BSPAlgorithm; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DDB0E425BCF45400BB5E41 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C2DDB0EC25BCF45B00BB5E41 /* BSPAlgorithm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BSPAlgorithm.entitlements; sourceTree = "<group>"; };
@@ -91,8 +97,13 @@
 			children = (
 				C2DDB0FC25BCFC5B00BB5E41 /* Color.cpp */,
 				C2DDB0FB25BCFB7100BB5E41 /* Structs.h */,
+				C22A113425BFCA9700113500 /* GameLoop.h */,
+				C22A113325BFCA9700113500 /* GameLoop.cpp */,
 				C2DDB10425BD0A5400BB5E41 /* Graphics.h */,
 				C2DDB10325BD0A5400BB5E41 /* Graphics.cpp */,
+				C22D12EB25C2648D00DA268C /* Keyboard.h */,
+				C22D12ED25C2656000DA268C /* Mouse.h */,
+				C22D12EF25C265A800DA268C /* Sprite.h */,
 				C2DDB0F625BCF83700BB5E41 /* Window.h */,
 				C2DDB0F525BCF83700BB5E41 /* Window.cpp */,
 			);
@@ -157,6 +168,7 @@
 			files = (
 				C2DDB0E525BCF45400BB5E41 /* main.cpp in Sources */,
 				C2DDB0FD25BCFC5B00BB5E41 /* Color.cpp in Sources */,
+				C22A113525BFCA9700113500 /* GameLoop.cpp in Sources */,
 				C2DDB10525BD0A5400BB5E41 /* Graphics.cpp in Sources */,
 				C2DDB0F725BCF83700BB5E41 /* Window.cpp in Sources */,
 			);
