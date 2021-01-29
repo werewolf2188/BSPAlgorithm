@@ -12,11 +12,12 @@
 #include "Graphics.h"
 #include "Structs.h"
 #include "Sprite.h"
+#include <vector>
 
 class GameLoop {
 private:
     Graphics* graphics;
-    Sprite* sprite;
+    std::vector<Sprite*> sprites;
 public:
     GameLoop();
     ~GameLoop();

@@ -19,7 +19,7 @@ GameLoop::~GameLoop() {
 }
 
 void GameLoop::addSprites(Sprite *sprite) {
-    this->sprite = sprite;
+    this->sprites.push_back(sprite);
 }
 
 void GameLoop::start(Graphics* graphics) {
@@ -32,38 +32,44 @@ void GameLoop::start(Graphics* graphics) {
             if (e.type == SDL_QUIT) {
                 quit = true;
             }
-            
-            // Key down
-            
-            if (e.type == SDL_KEYDOWN) {
-                needRender = true;
-                const Key key = SDL_GetKeyboardState(NULL);
-                KeyListener* keyListener =
-                    dynamic_cast<KeyListener *>(this->sprite);
-                if (keyListener) {
-                    
-                    keyListener->onKeyPress(key);
-                }                
-            }
-            // Mouse motion
-            
-            if (e.type == SDL_MOUSEMOTION) {
-                needRender = true;
-                MouseListener* mouseListener =
-                    dynamic_cast<MouseListener *>(this->sprite);
-                Point p;
-                if (mouseListener) {
-                    SDL_GetMouseState(&p.x, &p.y);
-                    mouseListener->onMouseMove(p);
+            for(auto sprite: this->sprites) {
+                
+                // Key down
+                
+                if (e.type == SDL_KEYDOWN) {
+                    needRender = true;
+                    const Key key = SDL_GetKeyboardState(NULL);
+                    KeyListener* keyListener =
+                        dynamic_cast<KeyListener *>(sprite);
+                    if (keyListener) {
+                        keyListener->onKeyPress(key);
+                    }
                 }
                 
+                // Mouse motion
+                
+                if (e.type == SDL_MOUSEMOTION) {
+                    needRender = true;
+                    MouseListener* mouseListener =
+                        dynamic_cast<MouseListener *>(sprite);
+                    Point p;
+                    if (mouseListener) {
+                        SDL_GetMouseState(&p.x, &p.y);
+                        mouseListener->onMouseMove(p);
+                    }
+                    
+                }
+                
+                // Render
+                
+                if (needRender) {
+                    this->graphics->clear();
+                    sprite->onRender(graphics);
+                    this->graphics->update();
+                    needRender = false;
+                }
             }
-            if (needRender) {
-                this->graphics->clear();
-                this->sprite->onRender(graphics);
-                this->graphics->update();
-                needRender = false;
-            }
+            
         }
     }
 }
