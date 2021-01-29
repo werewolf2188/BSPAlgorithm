@@ -26,6 +26,17 @@ extern Color BLACK;
 extern Color RED;
 extern Color GREEN;
 extern Color BLUE;
+extern Color CYAN;
+extern Color MAGENTA;
+extern Color YELLOW;
+extern Color GRAY;
+extern Color GREY;
+extern Color MAROON;
+extern Color DARKGREEN;
+extern Color NAVY;
+extern Color TEAL;
+extern Color PURPLE;
+extern Color OLIVE;
 
 // MARK: Position
 

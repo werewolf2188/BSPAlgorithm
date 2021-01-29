@@ -34,42 +34,43 @@ void GameLoop::start(Graphics* graphics) {
             }
             for(auto sprite: this->sprites) {
                 
+                // Need two improve this loop
                 // Key down
                 
                 if (e.type == SDL_KEYDOWN) {
-                    needRender = true;
                     const Key key = SDL_GetKeyboardState(NULL);
                     KeyListener* keyListener =
                         dynamic_cast<KeyListener *>(sprite);
                     if (keyListener) {
-                        keyListener->onKeyPress(key);
+                        needRender = keyListener->onKeyPress(key);
                     }
                 }
                 
                 // Mouse motion
                 
                 if (e.type == SDL_MOUSEMOTION) {
-                    needRender = true;
                     MouseListener* mouseListener =
                         dynamic_cast<MouseListener *>(sprite);
                     Point p;
                     if (mouseListener) {
                         SDL_GetMouseState(&p.x, &p.y);
-                        mouseListener->onMouseMove(p);
+                        needRender = mouseListener->onMouseMove(p);
                     }
-                    
                 }
                 
                 // Render
                 
-                if (needRender) {
-                    this->graphics->clear();
-                    sprite->onRender(graphics);
-                    this->graphics->update();
-                    needRender = false;
-                }
+                
             }
-            
+            if (needRender) {
+                this->graphics->clear();
+                for(auto sprite: this->sprites) {
+                    // Need to improve the rendering system
+                    sprite->onRender(graphics);
+                }
+                this->graphics->update();
+                needRender = false;
+            }
         }
     }
 }

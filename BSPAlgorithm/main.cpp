@@ -12,53 +12,64 @@
 #include "Classes/Mouse.h"
 
 // Example of class with sprite, key listener and mouse listener
-class RectangleSprite: public Sprite, public KeyListener, public MouseListener {
+class BoundariesSprite: public Sprite/*, public KeyListener, public MouseListener*/ {
 private:
     Rect r;
+    Color color;
 public:
-    RectangleSprite();
-    void onKeyPress(const Key& key);
-    void onMouseMove(Point p);
+    BoundariesSprite(Rect r, Color color);
+//    bool onKeyPress(const Key& key);
+//    bool onMouseMove(Point p);
     void onRender(Graphics *g);
 };
 
-RectangleSprite::RectangleSprite() {
-    this->r = { { 100, 100 }, {50, 50} };
-}
-
-void RectangleSprite::onKeyPress(const Key& key) {
-    if (key == SDL_SCANCODE_RIGHT) {
-        r.position.x += 5;
-    }
-    if (key == SDL_SCANCODE_LEFT) {
-        
-        r.position.x -= 5;
-    }
-    if (key == SDL_SCANCODE_UP) {
-        r.position.y -= 5;
-    }
-    if (key == SDL_SCANCODE_DOWN) {
-        r.position.y += 5;
-    }
-}
-
-void RectangleSprite::onMouseMove(Point p) {
-    r.position.x = p.x;
-    r.position.y = p.y;
-}
-
-void RectangleSprite::onRender(Graphics *g) {
-    g->drawRect(r, BLACK);
-}
-
 int main(int argc, const char * argv[]) {
     // insert code here...
-    RectangleSprite rect;
+    BoundariesSprite boundaries({ { 100, 100 }, {200, 300} }, BLUE);
+    BoundariesSprite boundaries2({ { 350, 100 }, {200, 300} }, RED);
+    BoundariesSprite boundaries3({ { 600, 100 }, {200, 300} }, DARKGREEN);
     GameLoop gameLoop;
-    gameLoop.addSprites(&rect);
+    gameLoop.addSprites(&boundaries);
+    gameLoop.addSprites(&boundaries2);
+    gameLoop.addSprites(&boundaries3);
     Window w(&gameLoop);
     w.show();
     return 0;
+}
+
+//<=========================
+
+BoundariesSprite::BoundariesSprite(Rect r, Color color): r(r), color(color) { }
+
+//bool BoundariesSprite::onKeyPress(const Key& key) {
+//    bool keyStrokeHandled = false;
+//    if (key == SDL_SCANCODE_RIGHT) {
+//        r.position.x += 5;
+//        keyStrokeHandled = true;
+//    }
+//    if (key == SDL_SCANCODE_LEFT) {
+//        r.position.x -= 5;
+//        keyStrokeHandled = true;
+//    }
+//    if (key == SDL_SCANCODE_UP) {
+//        r.position.y -= 5;
+//        keyStrokeHandled = true;
+//    }
+//    if (key == SDL_SCANCODE_DOWN) {
+//        r.position.y += 5;
+//        keyStrokeHandled = true;
+//    }
+//    return keyStrokeHandled;
+//}
+
+//bool BoundariesSprite::onMouseMove(Point p) {
+//    r.position.x = p.x;
+//    r.position.y = p.y;
+//    return true;
+//}
+
+void BoundariesSprite::onRender(Graphics *g) {
+    g->drawRect(r, color);
 }
 
 //    Graphics g = w.getGraphics();

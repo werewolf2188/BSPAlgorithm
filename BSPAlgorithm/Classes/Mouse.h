@@ -11,6 +11,6 @@
 
 class MouseListener {
 public:
-    virtual void onMouseMove(Point p) = 0;
+    virtual bool onMouseMove(Point p) = 0;
 };
 #endif /* Mouse_h */
