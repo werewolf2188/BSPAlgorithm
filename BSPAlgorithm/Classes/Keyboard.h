@@ -26,6 +26,6 @@ inline bool operator==(const Key& key, const SDL_Scancode code) {
 // MARK: KeyListener
 class KeyListener {
 public:
-    virtual void onKeyPress(const Key& key) = 0;
+    virtual bool onKeyPress(const Key& key) = 0;
 };
 #endif /* Key_h */
