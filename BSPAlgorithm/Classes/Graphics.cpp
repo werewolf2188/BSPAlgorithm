@@ -113,22 +113,18 @@ void _drawLine(SDL_Surface* surface, int x1, int y1, int x2, int y2, Color c) {
 
 // MARK: Graphics
 Graphics::Graphics(SDL_Surface* surface, SDL_Window * window):
-surface(surface), window(window) {
-    // Work with buffers
-//    pixels = malloc(surface->w * surface->h * sizeof(uint32_t));
-//    SDL_memset(pixels, 0xAA00FF22, surface->w * surface->h * sizeof(uint32_t));
-}
+surface(surface), window(window) {}
 
 void Graphics::drawPoint(Point p, Color c) {
     // Dont pass the actual frame
-    _drawPoint(surface, p, c);
+    _drawPoint(buffer, p, c);
 }
 
 void Graphics::drawLine(Point from, Point to, Color c) {
     if (from == to) drawPoint(from, c);
-    else if (from.y == to.y) _horLine(surface, to.y, from.x, to.x, c);
-    else if (from.x == to.x) _verLine(surface, to.x, from.y, to.y, c);
-    else _drawLine(surface, from.x, from.y, to.x, to.y, c);
+    else if (from.y == to.y) _horLine(buffer, to.y, from.x, to.x, c);
+    else if (from.x == to.x) _verLine(buffer, to.x, from.y, to.y, c);
+    else _drawLine(buffer, from.x, from.y, to.x, to.y, c);
 }
 
 void Graphics::drawRect(Rect r, Color c) {
@@ -196,10 +192,10 @@ void Graphics::drawDisk(Point center, int radius, Color color) {
         f = yc + x;
         g = xc - y;
         h = yc - x;
-        if(b != pb) _horLine(surface, b, a, c, color);
-        if(d != pd) _horLine(surface, d, a, c, color);
-        if(f != b)  _horLine(surface, f, e, g, color);
-        if(h != d && h != f) _horLine(surface, h, e, g, color);
+        if(b != pb) _horLine(buffer, b, a, c, color);
+        if(d != pd) _horLine(buffer, d, a, c, color);
+        if(f != b)  _horLine(buffer, f, e, g, color);
+        if(h != d && h != f) _horLine(buffer, h, e, g, color);
         pb = b;
         pd = d;
         if(p < 0) p += (x++ << 2) + 6;
@@ -208,10 +204,12 @@ void Graphics::drawDisk(Point center, int radius, Color color) {
 }
 
 void Graphics::update() {
+    SDL_memcpy(surface->pixels, buffer->pixels, surface->w * surface->h * sizeof(uint32_t));
     SDL_UpdateWindowSurface(window);
+    SDL_FreeSurface(buffer);
 }
 
 void Graphics::clear() {
-    SDL_FillRect(surface, NULL, SDL_MapRGB( surface->format, WHITE.r, WHITE.g, WHITE.b));
-    update();
+    buffer = SDL_DuplicateSurface(surface);
+    SDL_FillRect(buffer, NULL, SDL_MapRGB( surface->format, WHITE.r, WHITE.g, WHITE.b));
 }

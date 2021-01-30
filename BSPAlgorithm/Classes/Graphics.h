@@ -13,6 +13,7 @@
 #include "Structs.h"
 class Graphics {
 private:
+    SDL_Surface* buffer;
     SDL_Surface* surface;
     SDL_Window * window;
     void* pixels;
