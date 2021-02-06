@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C22A113525BFCA9700113500 /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22A113325BFCA9700113500 /* GameLoop.cpp */; };
+		C260903625C5D1E700647596 /* Boundaries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C260903425C5D1E700647596 /* Boundaries.cpp */; };
+		C260903C25C5D54A00647596 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C260903A25C5D54A00647596 /* Player.cpp */; };
+		C260904125C5D8D300647596 /* AbsoluteMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C260903F25C5D8D300647596 /* AbsoluteMap.cpp */; };
+		C260904625C5DB8B00647596 /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C260904425C5DB8B00647596 /* Wall.cpp */; };
+		C26A3ED625C7BDF300D6546B /* TransformedMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26A3ED425C7BDF300D6546B /* TransformedMap.cpp */; };
+		C2CABE3225CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2CABE3025CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp */; };
 		C2DDB0E525BCF45400BB5E41 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB0E425BCF45400BB5E41 /* main.cpp */; };
 		C2DDB0F025BCF62B00BB5E41 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DDB0EF25BCF62B00BB5E41 /* SDL2.framework */; };
 		C2DDB0F725BCF83700BB5E41 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB0F525BCF83700BB5E41 /* Window.cpp */; };
@@ -33,6 +39,18 @@
 		C22D12EB25C2648D00DA268C /* Keyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Keyboard.h; sourceTree = "<group>"; };
 		C22D12ED25C2656000DA268C /* Mouse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mouse.h; sourceTree = "<group>"; };
 		C22D12EF25C265A800DA268C /* Sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		C260903425C5D1E700647596 /* Boundaries.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Boundaries.cpp; sourceTree = "<group>"; };
+		C260903525C5D1E700647596 /* Boundaries.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Boundaries.h; sourceTree = "<group>"; };
+		C260903A25C5D54A00647596 /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		C260903B25C5D54A00647596 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		C260903F25C5D8D300647596 /* AbsoluteMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AbsoluteMap.cpp; sourceTree = "<group>"; };
+		C260904025C5D8D300647596 /* AbsoluteMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbsoluteMap.h; sourceTree = "<group>"; };
+		C260904425C5DB8B00647596 /* Wall.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Wall.cpp; sourceTree = "<group>"; };
+		C260904525C5DB8B00647596 /* Wall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
+		C26A3ED425C7BDF300D6546B /* TransformedMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TransformedMap.cpp; sourceTree = "<group>"; };
+		C26A3ED525C7BDF300D6546B /* TransformedMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformedMap.h; sourceTree = "<group>"; };
+		C2CABE3025CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PerspectiveTransformedMap.cpp; sourceTree = "<group>"; };
+		C2CABE3125CBB0AE00DA1B6A /* PerspectiveTransformedMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerspectiveTransformedMap.h; sourceTree = "<group>"; };
 		C2DDB0E125BCF45400BB5E41 /* BSPAlgorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BSPAlgorithm; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DDB0E425BCF45400BB5E41 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C2DDB0EC25BCF45B00BB5E41 /* BSPAlgorithm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BSPAlgorithm.entitlements; sourceTree = "<group>"; };
@@ -57,6 +75,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C260903325C5D18300647596 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				C260904025C5D8D300647596 /* AbsoluteMap.h */,
+				C260903F25C5D8D300647596 /* AbsoluteMap.cpp */,
+				C260903525C5D1E700647596 /* Boundaries.h */,
+				C260903425C5D1E700647596 /* Boundaries.cpp */,
+				C260903B25C5D54A00647596 /* Player.h */,
+				C260903A25C5D54A00647596 /* Player.cpp */,
+				C2CABE3125CBB0AE00DA1B6A /* PerspectiveTransformedMap.h */,
+				C2CABE3025CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp */,
+				C26A3ED525C7BDF300D6546B /* TransformedMap.h */,
+				C26A3ED425C7BDF300D6546B /* TransformedMap.cpp */,
+				C260904525C5DB8B00647596 /* Wall.h */,
+				C260904425C5DB8B00647596 /* Wall.cpp */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		C2DDB0D825BCF45400BB5E41 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				C2DDB0F225BCF7E100BB5E41 /* Classes */,
+				C260903325C5D18300647596 /* Test */,
 				C2DDB0EC25BCF45B00BB5E41 /* BSPAlgorithm.entitlements */,
 				C2DDB0E425BCF45400BB5E41 /* main.cpp */,
 			);
@@ -166,9 +204,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C260904625C5DB8B00647596 /* Wall.cpp in Sources */,
 				C2DDB0E525BCF45400BB5E41 /* main.cpp in Sources */,
+				C26A3ED625C7BDF300D6546B /* TransformedMap.cpp in Sources */,
+				C2CABE3225CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp in Sources */,
+				C260903C25C5D54A00647596 /* Player.cpp in Sources */,
 				C2DDB0FD25BCFC5B00BB5E41 /* Color.cpp in Sources */,
 				C22A113525BFCA9700113500 /* GameLoop.cpp in Sources */,
+				C260903625C5D1E700647596 /* Boundaries.cpp in Sources */,
+				C260904125C5D8D300647596 /* AbsoluteMap.cpp in Sources */,
 				C2DDB10525BD0A5400BB5E41 /* Graphics.cpp in Sources */,
 				C2DDB0F725BCF83700BB5E41 /* Window.cpp in Sources */,
 			);
