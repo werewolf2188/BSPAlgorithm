@@ -112,6 +112,5 @@ void PerspectiveTransformedMapSprite::onRender(Graphics *g) {
         g->drawLine(w2, w4, PURPLE); // BOTTOM
         g->drawLine(w1, w2, OLIVE); // LEFT
         g->drawLine(w3, w4, OLIVE); // RIGHT
-        g->fillRegion(w1, w4, YELLOW);
     }
 }
