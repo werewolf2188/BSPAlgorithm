@@ -8,28 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		C22A113525BFCA9700113500 /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22A113325BFCA9700113500 /* GameLoop.cpp */; };
+		C236EAB025D252B700ADFCDE /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236EAAE25D252B700ADFCDE /* Player.cpp */; };
 		C260903625C5D1E700647596 /* Boundaries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C260903425C5D1E700647596 /* Boundaries.cpp */; };
 		C260903C25C5D54A00647596 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C260903A25C5D54A00647596 /* Player.cpp */; };
 		C260904125C5D8D300647596 /* AbsoluteMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C260903F25C5D8D300647596 /* AbsoluteMap.cpp */; };
 		C260904625C5DB8B00647596 /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C260904425C5DB8B00647596 /* Wall.cpp */; };
 		C26A3ED625C7BDF300D6546B /* TransformedMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26A3ED425C7BDF300D6546B /* TransformedMap.cpp */; };
+		C2CA869E25D3979500264EA4 /* Sector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2CA869C25D3979500264EA4 /* Sector.cpp */; };
 		C2CABE3225CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2CABE3025CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp */; };
 		C2DDB0E525BCF45400BB5E41 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB0E425BCF45400BB5E41 /* main.cpp */; };
 		C2DDB0F025BCF62B00BB5E41 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DDB0EF25BCF62B00BB5E41 /* SDL2.framework */; };
 		C2DDB0F725BCF83700BB5E41 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB0F525BCF83700BB5E41 /* Window.cpp */; };
 		C2DDB0FD25BCFC5B00BB5E41 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB0FC25BCFC5B00BB5E41 /* Color.cpp */; };
 		C2DDB10525BD0A5400BB5E41 /* Graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB10325BD0A5400BB5E41 /* Graphics.cpp */; };
+		C2FE96B025D23BFA0026F309 /* Loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2FE96AE25D23BFA0026F309 /* Loader.cpp */; };
+		C2FE96B725D23C2D0026F309 /* map-clear.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2FE96B325D23C1E0026F309 /* map-clear.txt */; };
+		C2FE96BC25D249590026F309 /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2FE96BA25D249590026F309 /* Vector.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C2DDB0DF25BCF45400BB5E41 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				C2FE96B725D23C2D0026F309 /* map-clear.txt in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -39,6 +45,8 @@
 		C22D12EB25C2648D00DA268C /* Keyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Keyboard.h; sourceTree = "<group>"; };
 		C22D12ED25C2656000DA268C /* Mouse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mouse.h; sourceTree = "<group>"; };
 		C22D12EF25C265A800DA268C /* Sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		C236EAAE25D252B700ADFCDE /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		C236EAAF25D252B700ADFCDE /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		C260903425C5D1E700647596 /* Boundaries.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Boundaries.cpp; sourceTree = "<group>"; };
 		C260903525C5D1E700647596 /* Boundaries.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Boundaries.h; sourceTree = "<group>"; };
 		C260903A25C5D54A00647596 /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
@@ -49,6 +57,8 @@
 		C260904525C5DB8B00647596 /* Wall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
 		C26A3ED425C7BDF300D6546B /* TransformedMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TransformedMap.cpp; sourceTree = "<group>"; };
 		C26A3ED525C7BDF300D6546B /* TransformedMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformedMap.h; sourceTree = "<group>"; };
+		C2CA869C25D3979500264EA4 /* Sector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sector.cpp; sourceTree = "<group>"; };
+		C2CA869D25D3979500264EA4 /* Sector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sector.h; sourceTree = "<group>"; };
 		C2CABE3025CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PerspectiveTransformedMap.cpp; sourceTree = "<group>"; };
 		C2CABE3125CBB0AE00DA1B6A /* PerspectiveTransformedMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerspectiveTransformedMap.h; sourceTree = "<group>"; };
 		C2DDB0E125BCF45400BB5E41 /* BSPAlgorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BSPAlgorithm; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +71,11 @@
 		C2DDB0FC25BCFC5B00BB5E41 /* Color.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = "<group>"; };
 		C2DDB10325BD0A5400BB5E41 /* Graphics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Graphics.cpp; sourceTree = "<group>"; };
 		C2DDB10425BD0A5400BB5E41 /* Graphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Graphics.h; sourceTree = "<group>"; };
+		C2FE96AE25D23BFA0026F309 /* Loader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Loader.cpp; sourceTree = "<group>"; };
+		C2FE96AF25D23BFA0026F309 /* Loader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Loader.h; sourceTree = "<group>"; };
+		C2FE96B325D23C1E0026F309 /* map-clear.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "map-clear.txt"; sourceTree = "<group>"; };
+		C2FE96BA25D249590026F309 /* Vector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
+		C2FE96BB25D249590026F309 /* Vector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +129,12 @@
 		C2DDB0E325BCF45400BB5E41 /* BSPAlgorithm */ = {
 			isa = PBXGroup;
 			children = (
+				C2FE96AD25D23BD00026F309 /* BSP */,
 				C2DDB0F225BCF7E100BB5E41 /* Classes */,
 				C260903325C5D18300647596 /* Test */,
 				C2DDB0EC25BCF45B00BB5E41 /* BSPAlgorithm.entitlements */,
 				C2DDB0E425BCF45400BB5E41 /* main.cpp */,
+				C2FE96B325D23C1E0026F309 /* map-clear.txt */,
 			);
 			path = BSPAlgorithm;
 			sourceTree = "<group>";
@@ -146,6 +163,21 @@
 				C2DDB0F525BCF83700BB5E41 /* Window.cpp */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		C2FE96AD25D23BD00026F309 /* BSP */ = {
+			isa = PBXGroup;
+			children = (
+				C2FE96AF25D23BFA0026F309 /* Loader.h */,
+				C2FE96AE25D23BFA0026F309 /* Loader.cpp */,
+				C2FE96BB25D249590026F309 /* Vector.h */,
+				C2FE96BA25D249590026F309 /* Vector.cpp */,
+				C236EAAF25D252B700ADFCDE /* Player.h */,
+				C236EAAE25D252B700ADFCDE /* Player.cpp */,
+				C2CA869D25D3979500264EA4 /* Sector.h */,
+				C2CA869C25D3979500264EA4 /* Sector.cpp */,
+			);
+			path = BSP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,13 +239,17 @@
 				C260904625C5DB8B00647596 /* Wall.cpp in Sources */,
 				C2DDB0E525BCF45400BB5E41 /* main.cpp in Sources */,
 				C26A3ED625C7BDF300D6546B /* TransformedMap.cpp in Sources */,
+				C2CA869E25D3979500264EA4 /* Sector.cpp in Sources */,
 				C2CABE3225CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp in Sources */,
 				C260903C25C5D54A00647596 /* Player.cpp in Sources */,
 				C2DDB0FD25BCFC5B00BB5E41 /* Color.cpp in Sources */,
 				C22A113525BFCA9700113500 /* GameLoop.cpp in Sources */,
 				C260903625C5D1E700647596 /* Boundaries.cpp in Sources */,
+				C236EAB025D252B700ADFCDE /* Player.cpp in Sources */,
+				C2FE96BC25D249590026F309 /* Vector.cpp in Sources */,
 				C260904125C5D8D300647596 /* AbsoluteMap.cpp in Sources */,
 				C2DDB10525BD0A5400BB5E41 /* Graphics.cpp in Sources */,
+				C2FE96B025D23BFA0026F309 /* Loader.cpp in Sources */,
 				C2DDB0F725BCF83700BB5E41 /* Window.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
