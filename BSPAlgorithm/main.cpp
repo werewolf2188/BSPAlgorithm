@@ -9,34 +9,35 @@
 #include "Classes/Window.h"
 #include "Classes/GameLoop.h"
 
-#define TEST 1
+#define TEST 0
 
-#ifdef TEST
+#if TEST
 #include "Test/Boundaries.h"
 #include "Test/Player.h"
 #include "Test/AbsoluteMap.h"
 #include "Test/TransformedMap.h"
 #include "Test/PerspectiveTransformedMap.h"
+#else
+#include "BSP/Loader.h"
 #endif
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-#ifdef TEST
+    GameLoop gameLoop;
+#if TEST
     Player player = { 130, 130, M_PI };
     Wall wall = { { 70, 100 }, { 70, 150} };
     AbsoluteMapSprite amSprite(player, wall);
     TransformedMapSprite tmSprite(player, wall);
     PerspectiveTransformedMapSprite ptmSprite(player, wall);
-    GameLoop gameLoop;
+    
     gameLoop.addSprites(&amSprite);
     gameLoop.addSprites(&tmSprite);
     gameLoop.addSprites(&ptmSprite);
-    Window w(&gameLoop);
 #else
-    GameLoop gameLoop;
-    Window w(&gameLoop);
+    MapLoader loader("map-clear.txt");
 #endif
-    
+    Window w(&gameLoop);
     w.show();
     return 0;
 }
