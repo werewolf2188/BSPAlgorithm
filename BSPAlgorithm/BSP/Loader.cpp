@@ -98,5 +98,6 @@ void MapLoader::loadPlayer(std::fstream& file) {
 
 MapLoader::~MapLoader() {
     vertices.clear();
+    sectors.clear();
     delete player;
 }
