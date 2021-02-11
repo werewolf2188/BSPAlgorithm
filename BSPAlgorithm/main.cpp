@@ -18,7 +18,9 @@
 #include "Test/TransformedMap.h"
 #include "Test/PerspectiveTransformedMap.h"
 #else
+#include "BSP/Constants.h"
 #include "BSP/Loader.h"
+#include "BSP/Math.h"
 #endif
 
 int main(int argc, const char * argv[]) {
