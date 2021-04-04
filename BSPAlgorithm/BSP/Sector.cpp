@@ -24,3 +24,11 @@ unsigned int Sector::getNPoints() {
 void Sector::setNPoints(unsigned int npoints) {
     this->npoints = npoints;
 }
+
+float Sector::getCeil() {
+    return ceil;
+}
+
+float Sector::getFloor() {
+    return floor;
+}

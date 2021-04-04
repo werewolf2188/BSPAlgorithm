@@ -20,6 +20,8 @@ private:
     unsigned int npoints;
 public:
     Sector(float ceil, float floor);
+    float getCeil();
+    float getFloor();
     std::vector<Vector2 *>& getVertices();
     std::vector<signed char>& getNeighbors();
     unsigned int getNPoints();

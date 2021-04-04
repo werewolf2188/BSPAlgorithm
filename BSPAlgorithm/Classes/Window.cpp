@@ -11,9 +11,9 @@
 // MARK: Private methods
 void Window::initialize_window() {
     if(SDL_Init(SDL_INIT_VIDEO) >= 0 ) {
-        SDL_DisplayMode mode = { SDL_PIXELFORMAT_UNKNOWN, 0, 0, 0, 0 };
-        SDL_GetCurrentDisplayMode(0, &mode);
-        window = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, mode.w, mode.h, SDL_WINDOW_SHOWN);
+//        SDL_DisplayMode mode = { SDL_PIXELFORMAT_UNKNOWN, 0, 0, 0, 0 };
+//        SDL_GetCurrentDisplayMode(0, &mode);
+        window = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 608, 480, SDL_WINDOW_SHOWN);
     }
 };
 

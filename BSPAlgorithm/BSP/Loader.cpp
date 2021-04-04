@@ -12,6 +12,8 @@
 
 #include <stdio.h>
 
+#include "Constants.h"
+
 #define EQUALS(type, string) !type.compare(string)
 // DELETE
 // One # for string value
@@ -93,11 +95,24 @@ void MapLoader::loadPlayer(std::fstream& file) {
     file >> position.y;
     file >> angle;
     file >> sector;
-    player = new Player(position, angle, sector);
+    float z = sectors[sector]->getFloor() + EyeHeight;
+    player = new Player(position, angle, sector, z);
 }
 
 MapLoader::~MapLoader() {
     vertices.clear();
     sectors.clear();
     delete player;
+}
+
+std::vector<Vector2 *> MapLoader::getVertices() {
+    return vertices;
+}
+
+std::vector<Sector *> MapLoader::getSectors() {
+    return sectors;
+}
+
+Player MapLoader::getPlayerInitialLocation() {
+    return *player;
 }
