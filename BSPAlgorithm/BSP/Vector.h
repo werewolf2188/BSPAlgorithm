@@ -28,5 +28,6 @@ struct Vector3 {
 Vector3 * createVector3(float x, float y, float z);
 
 Vector3 operator+(Vector3 v1, Vector3 v2);
+Vector3 operator-(Vector3 v1, Vector3 v2);
 
 #endif /* Vector_hpp */

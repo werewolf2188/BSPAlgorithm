@@ -54,7 +54,9 @@ void GameLoop::start(Graphics* graphics) {
                     Point p;
                     if (mouseListener) {
                         SDL_GetMouseState(&p.x, &p.y);
-                        needRender = mouseListener->onMouseMove(p);
+                        needRender |= mouseListener->onMouseMove(p);
+                        SDL_GetRelativeMouseState(&p.x, &p.y);
+                        needRender |= mouseListener->onRelativeMouse(p);
                     }
                 }
                 

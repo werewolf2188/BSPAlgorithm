@@ -11,6 +11,7 @@
 
 class MouseListener {
 public:
-    virtual bool onMouseMove(Point p) = 0;
+    virtual bool onMouseMove(Point p) { return false; }
+    virtual bool onRelativeMouse(Point p) { return false; }
 };
 #endif /* Mouse_h */

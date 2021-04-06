@@ -27,6 +27,10 @@ Vector3 operator+(Vector3 v1, Vector3 v2) {
     return { v1.x + v2.x, v1.y + v2.y, v1.z + v2.z };
 }
 
+Vector3 operator-(Vector3 v1, Vector3 v2) {
+    return { v1.x - v2.x, v1.y - v2.y, v1.z - v2.z };
+}
+
 float crossProduct(Vector2 v0, Vector2 v1) {
     return vxs(v0.x, v0.y, v1.x, v1.y);
 }

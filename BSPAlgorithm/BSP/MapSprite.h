@@ -44,6 +44,6 @@ public:
     MapSprite(MapLoader& loader);
     bool onKeyPress(const Key& key);
     void onRender(Graphics *g);
-    bool onMouseMove(Point p);
+    bool onRelativeMouse(Point p);
 };
 #endif /* MapSprite_hpp */

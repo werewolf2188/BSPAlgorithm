@@ -215,11 +215,11 @@ void MapSprite::onRender(Graphics *g) {
 
 //    std::cout << "Render" << std::endl;
 }
-bool MapSprite::onMouseMove(Point p) {
-//    player.setAngle(player.getAngle() + (p.x * 0.03f));
-//    yawVar = clamp(yawVar - p.y * 0.05f, -5.0f, 5.0f);
-//    player.setYaw(yawVar - player.getVelocity().z * 0.5f);
-//    move_player(0,0);
+bool MapSprite::onRelativeMouse(Point p) {
+    player.setAngle(player.getAngle() + (p.x * 0.03f));
+    yawVar = clamp(yawVar - (-p.y) * 0.05f, -5.0f, 5.0f);
+    player.setYaw(yawVar - player.getVelocity().z * 0.5f);
+    move_player(0,0);
     return true;
 }
 
@@ -237,7 +237,8 @@ bool MapSprite::onKeyPress(const Key &key) {
         mov.y -= player.getAnglesin() * 0.2f;
         pushing = true;
         handle = true;
-    } else if (key == SDL_SCANCODE_A) {
+    }
+    if (key == SDL_SCANCODE_A) {
         mov.x += player.getAnglesin() * 0.2f;
         mov.y -= player.getAnglecos() * 0.2f;
         pushing = true;
@@ -247,7 +248,8 @@ bool MapSprite::onKeyPress(const Key &key) {
         mov.y += player.getAnglecos() * 0.2f;
         pushing = true;
         handle = true;
-    } else if (key == SDL_SCANCODE_RCTRL) {
+    } else if (key == SDL_SCANCODE_RCTRL ||
+               key == SDL_SCANCODE_LCTRL) {
         ducking = true;
         falling = true;
     } else if (key == SDL_SCANCODE_SPACE) {
@@ -260,13 +262,14 @@ bool MapSprite::onKeyPress(const Key &key) {
     float acceleration = pushing ? 0.4 : 0.2;
 
     player.setVelocity({ player.getVelocity().x * (1 - acceleration) + mov.x * acceleration,
-                         player.getVelocity().x * (1 - acceleration) + mov.x * acceleration,
+                         player.getVelocity().y * (1 - acceleration) + mov.y * acceleration,
                         0.0f
     });
     if(pushing) {
         moving = 1;
     }
     /* Vertical collision detection */
+    ground = !falling;
     if (falling) {
         handle_falling();
     }
@@ -280,11 +283,68 @@ bool MapSprite::onKeyPress(const Key &key) {
 
 // MARK: Private
 void MapSprite::handle_falling() {
-    
+    Vector3 gravity = { 0, 0, 0.05f };
+    player.setVelocity(player.getVelocity() - gravity);
+    float nextz = player.getPosition().z + player.getVelocity().z;
+    if (player.getVelocity().z < 0 && nextz < loader.getSectors()[player.getSector()]->getFloor() + current_eye_height()) {
+        Vector3 gro = { player.getPosition().x,
+                        player.getPosition().y,
+                        loader.getSectors()[player.getSector()]->getFloor() + current_eye_height() };
+        player.setPosition(gro);
+        Vector3 vel = { player.getVelocity().x, player.getVelocity().y, 0 };
+        player.setVelocity(vel);
+        falling = false;
+        ground = true;
+    } else if (player.getVelocity().z > 0 && nextz > loader.getSectors()[player.getSector()]->getCeil()) {
+        Vector3 vel = { player.getVelocity().x, player.getVelocity().y, 0 };
+        player.setVelocity(vel);
+        falling = true;
+    }
+    if (falling) {
+        // Here is not working correctly
+        Vector3 vel = { player.getPosition().x,
+                        player.getPosition().y,
+                        player.getPosition().z + (player.getVelocity().z / 0.05f) };
+        player.setPosition(vel);
+        moving = true;
+    }
 }
 
 void MapSprite::handle_moving() {
+    float px = player.getPosition().x;
+    float py = player.getPosition().y;
+    float dx = player.getVelocity().x;
+    float dy = player.getVelocity().y;
     
+    Sector* sector = loader.getSectors()[player.getSector()];
+    auto vert = sector->getVertices();
+    for (int s = 0; s < sector->getNPoints(); ++s) {
+        Vector2 vPos = { px, py };
+        Vector2 vPosDx = { px + dx, py + dy };
+        Vector2 vVert0 = { vert[s + 0]->x, vert[s + 0]->y };
+        Vector2 vVert1 = { vert[s + 1]->x, vert[s + 1]->y };
+        bool intersect = intersectBox(vPos, vPosDx, vVert0, vVert1);
+        float ps = pointSide(vPosDx, vVert0, vVert1);
+        if (intersect && ps < 0) {
+            /* Check where the hole is. */
+            float hole_low  = sector->getNeighbors()[s] < 0 ?  9e9 : std::max(sector->getFloor(), loader.getSectors()[sector->getNeighbors()[s]]->getFloor());
+            float hole_high = sector->getNeighbors()[s] < 0 ? -9e9 : std::min(sector->getCeil(),  loader.getSectors()[sector->getNeighbors()[s]]->getCeil());
+            /* Check whether we're bumping into a wall. */
+            if(hole_high < player.getPosition().z + HeadMargin
+               || hole_low  > player.getPosition().z - current_eye_height() + KneeHeight) {
+                /* Bumps into a wall! Slide along the wall. */
+                /* This formula is from Wikipedia article "vector projection". */
+                float xd = vVert1.x - vVert0.x;
+                float yd = vVert1.y - vVert0.y;
+                dx = xd * (dx*xd + yd*dy) / (xd*xd + yd*yd);
+                dy = yd * (dx*xd + yd*dy) / (xd*xd + yd*yd);
+                moving = false;
+            }
+        }
+    }
+
+    move_player(dx, dy);
+    falling = true;
 }
 
 float MapSprite::current_eye_height() {
