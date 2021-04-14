@@ -24,6 +24,7 @@ void GameLoop::addSprites(Sprite *sprite) {
 
 void GameLoop::start(Graphics* graphics) {
     SDL_Event e;
+    SDL_ShowCursor(SDL_DISABLE);
     this->graphics = graphics;
     bool quit = false;
     bool needRender = true;
