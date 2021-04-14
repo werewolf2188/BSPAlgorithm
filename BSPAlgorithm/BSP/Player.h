@@ -20,7 +20,21 @@ private:
     float yaw;
     unsigned int sector;
 public:
-    Player(Vector2 pos, float angle, unsigned int sector);
+    Player(Vector2 pos, float angle, unsigned int sector, float z);
+    Vector3 getPosition();
+    void setPosition(Vector3 position);
+    Vector3 getVelocity();
+    void setVelocity(Vector3 velocity);
+    float getAngle();
+    void setAngle(float angle);
+    float getAnglesin();
+    void setAnglesin(float anglesin); // For now, but if I can remove it later, I will
+    float getAnglecos();
+    void setAnglecos(float anglecos); // For now, but if I can remove it later, I will
+    unsigned int getSector();
+    void setSector(unsigned int sector);
+    float getYaw();
+    void setYaw(float yaw);
 };
 
 #endif /* Player_hpp */

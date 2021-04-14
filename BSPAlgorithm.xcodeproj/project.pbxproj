@@ -14,6 +14,7 @@
 		C260904125C5D8D300647596 /* AbsoluteMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C260903F25C5D8D300647596 /* AbsoluteMap.cpp */; };
 		C260904625C5DB8B00647596 /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C260904425C5DB8B00647596 /* Wall.cpp */; };
 		C26A3ED625C7BDF300D6546B /* TransformedMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26A3ED425C7BDF300D6546B /* TransformedMap.cpp */; };
+		C291D9D5260D890F0019872B /* MapSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C291D9D3260D890F0019872B /* MapSprite.cpp */; };
 		C2CA869E25D3979500264EA4 /* Sector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2CA869C25D3979500264EA4 /* Sector.cpp */; };
 		C2CABE3225CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2CABE3025CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp */; };
 		C2DDB0E525BCF45400BB5E41 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB0E425BCF45400BB5E41 /* main.cpp */; };
@@ -59,6 +60,8 @@
 		C260904525C5DB8B00647596 /* Wall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
 		C26A3ED425C7BDF300D6546B /* TransformedMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TransformedMap.cpp; sourceTree = "<group>"; };
 		C26A3ED525C7BDF300D6546B /* TransformedMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformedMap.h; sourceTree = "<group>"; };
+		C291D9D3260D890F0019872B /* MapSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapSprite.cpp; sourceTree = "<group>"; };
+		C291D9D4260D890F0019872B /* MapSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapSprite.h; sourceTree = "<group>"; };
 		C2CA869C25D3979500264EA4 /* Sector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sector.cpp; sourceTree = "<group>"; };
 		C2CA869D25D3979500264EA4 /* Sector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sector.h; sourceTree = "<group>"; };
 		C2CABE3025CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PerspectiveTransformedMap.cpp; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				C2CA869C25D3979500264EA4 /* Sector.cpp */,
 				C2FE96BB25D249590026F309 /* Vector.h */,
 				C2FE96BA25D249590026F309 /* Vector.cpp */,
+				C291D9D4260D890F0019872B /* MapSprite.h */,
+				C291D9D3260D890F0019872B /* MapSprite.cpp */,
 			);
 			path = BSP;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				C260904625C5DB8B00647596 /* Wall.cpp in Sources */,
 				C2DDB0E525BCF45400BB5E41 /* main.cpp in Sources */,
 				C26A3ED625C7BDF300D6546B /* TransformedMap.cpp in Sources */,
+				C291D9D5260D890F0019872B /* MapSprite.cpp in Sources */,
 				C2CA869E25D3979500264EA4 /* Sector.cpp in Sources */,
 				C2CABE3225CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp in Sources */,
 				C260903C25C5D54A00647596 /* Player.cpp in Sources */,

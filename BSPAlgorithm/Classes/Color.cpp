@@ -17,9 +17,6 @@ Color makeFromRGBA(long color) {
 }
 
 Color makeFromRGB(long color) {
-    if (color < 0xFFFF) {
-        return { 0, 0, 0, 0};
-    }
     uint8_t r = (color & 0xFF0000) >> 16;
     uint8_t g = (color & 0x00FF00) >> 8;
     uint8_t b = (color & 0x0000FF);

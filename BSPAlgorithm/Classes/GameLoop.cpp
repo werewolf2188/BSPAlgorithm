@@ -24,6 +24,7 @@ void GameLoop::addSprites(Sprite *sprite) {
 
 void GameLoop::start(Graphics* graphics) {
     SDL_Event e;
+    SDL_ShowCursor(SDL_DISABLE);
     this->graphics = graphics;
     bool quit = false;
     bool needRender = true;
@@ -45,6 +46,14 @@ void GameLoop::start(Graphics* graphics) {
                         needRender = keyListener->onKeyPress(key);
                     }
                 }
+                if (e.type == SDL_KEYUP) {
+                    const Key key = e.key.keysym.scancode;
+                    KeyListener* keyListener =
+                        dynamic_cast<KeyListener *>(sprite);
+                    if (keyListener) {
+                        needRender = keyListener->onKeyRelease(key);
+                    }
+                }
                 
                 // Mouse motion
                 
@@ -54,7 +63,9 @@ void GameLoop::start(Graphics* graphics) {
                     Point p;
                     if (mouseListener) {
                         SDL_GetMouseState(&p.x, &p.y);
-                        needRender = mouseListener->onMouseMove(p);
+                        needRender |= mouseListener->onMouseMove(p);
+                        SDL_GetRelativeMouseState(&p.x, &p.y);
+                        needRender |= mouseListener->onRelativeMouse(p);
                     }
                 }
                 

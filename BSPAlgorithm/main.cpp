@@ -21,6 +21,7 @@
 #include "BSP/Constants.h"
 #include "BSP/Loader.h"
 #include "BSP/Math.h"
+#include "BSP/MapSprite.h"
 #endif
 
 int main(int argc, const char * argv[]) {
@@ -38,6 +39,8 @@ int main(int argc, const char * argv[]) {
     gameLoop.addSprites(&ptmSprite);
 #else
     MapLoader loader("map-clear.txt");
+    MapSprite map(loader);
+    gameLoop.addSprites(&map);
 #endif
     Window w(&gameLoop);
     w.show();

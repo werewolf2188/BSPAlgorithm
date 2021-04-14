@@ -120,6 +120,10 @@ void Graphics::drawPoint(Point p, Color c) {
     _drawPoint(buffer, p, c);
 }
 
+void Graphics::drawPixel(u_int32_t p, Color c) {
+    *(((uint32_t*)buffer->pixels) + p) = _fromColor(c);
+}
+
 void Graphics::drawLine(Point from, Point to, Color c) {
     if (from == to) drawPoint(from, c);
     else if (from.y == to.y) _horLine(buffer, to.y, from.x, to.x, c);
@@ -212,4 +216,10 @@ void Graphics::update() {
 void Graphics::clear() {
     buffer = SDL_DuplicateSurface(surface);
     SDL_FillRect(buffer, NULL, SDL_MapRGB( surface->format, WHITE.r, WHITE.g, WHITE.b));
+}
+
+Size Graphics::getDrawableSize() const {
+    Size s;
+    SDL_GetWindowSize(this->window, &s.width, &s.height);
+    return s;
 }

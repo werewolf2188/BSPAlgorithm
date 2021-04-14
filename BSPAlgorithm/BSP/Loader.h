@@ -26,6 +26,9 @@ private:
 public:
     MapLoader(const char* fileName);
     ~MapLoader();
+    std::vector<Vector2 *> getVertices();
+    std::vector<Sector *> getSectors();
+    Player getPlayerInitialLocation();
 };
 
 #endif /* Loader_hpp */
