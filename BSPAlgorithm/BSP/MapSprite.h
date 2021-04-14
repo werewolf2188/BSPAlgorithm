@@ -43,6 +43,7 @@ private:
 public:
     MapSprite(MapLoader& loader);
     bool onKeyPress(const Key& key);
+    bool onKeyRelease(const Key &key);
     void onRender(Graphics *g);
     bool onRelativeMouse(Point p);
 };

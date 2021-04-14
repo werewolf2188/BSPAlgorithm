@@ -210,8 +210,7 @@ void Graphics::drawDisk(Point center, int radius, Color color) {
 void Graphics::update() {
     SDL_memcpy(surface->pixels, buffer->pixels, surface->w * surface->h * sizeof(uint32_t));
     SDL_UpdateWindowSurface(window);
-    // TODO: Revert this
-//    SDL_FreeSurface(buffer);
+    SDL_FreeSurface(buffer);
 }
 
 void Graphics::clear() {

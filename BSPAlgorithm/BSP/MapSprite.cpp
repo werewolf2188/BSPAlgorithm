@@ -248,11 +248,14 @@ bool MapSprite::onKeyPress(const Key &key) {
         mov.y += player.getAnglecos() * 0.2f;
         pushing = true;
         handle = true;
-    } else if (key == SDL_SCANCODE_RCTRL ||
+    }
+    if (key == SDL_SCANCODE_RCTRL ||
                key == SDL_SCANCODE_LCTRL) {
         ducking = true;
         falling = true;
-    } else if (key == SDL_SCANCODE_SPACE) {
+        handle = true;
+    }
+    if (key == SDL_SCANCODE_SPACE) {
         if(ground) {
             Vector3 z = { 0, 0, 0.5f };
             player.setVelocity(player.getVelocity() + z);
@@ -274,8 +277,27 @@ bool MapSprite::onKeyPress(const Key &key) {
         handle_falling();
     }
     /* Horizontal collision detection */
-    if(moving)
-    {
+    if(moving) {
+        handle_moving();
+    }
+    return handle;
+}
+
+bool MapSprite::onKeyRelease(const Key &key) {
+    bool handle = false;
+    if (key == SDL_SCANCODE_RCTRL ||
+        key == SDL_SCANCODE_LCTRL) {
+        ducking = false;
+        falling = true;
+        handle = true;
+    }
+    /* Vertical collision detection */
+    ground = !falling;
+    if (falling) {
+        handle_falling();
+    }
+    /* Horizontal collision detection */
+    if(moving) {
         handle_moving();
     }
     return handle;
@@ -301,7 +323,6 @@ void MapSprite::handle_falling() {
         falling = true;
     }
     if (falling) {
-        // Here is not working correctly
         Vector3 vel = { player.getPosition().x,
                         player.getPosition().y,
                         player.getPosition().z + (player.getVelocity().z / 0.05f) };
@@ -402,6 +423,4 @@ void MapSprite::draw_vertical_line(Graphics* g,
         }
         g->drawPixel(ny2 * windowSize.width + x, bottom);
     }
-    // TODO: Remove this
-//    g->update(); //<-- Investigate values
 }

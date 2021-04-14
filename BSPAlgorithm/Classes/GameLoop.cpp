@@ -45,6 +45,14 @@ void GameLoop::start(Graphics* graphics) {
                         needRender = keyListener->onKeyPress(key);
                     }
                 }
+                if (e.type == SDL_KEYUP) {
+                    const Key key = e.key.keysym.scancode;
+                    KeyListener* keyListener =
+                        dynamic_cast<KeyListener *>(sprite);
+                    if (keyListener) {
+                        needRender = keyListener->onKeyRelease(key);
+                    }
+                }
                 
                 // Mouse motion
                 
