@@ -22,13 +22,14 @@ void GameLoop::addSprites(Sprite *sprite) {
     this->sprites.push_back(sprite);
 }
 
-void GameLoop::start(Graphics* graphics) {
+void GameLoop::start(Graphics* graphics, UI* ui) {
     SDL_Event e;
     SDL_ShowCursor(SDL_DISABLE);
     this->graphics = graphics;
     bool quit = false;
     bool needRender = true;
     while (!quit) {
+        ui->getUserInputHandler();
         while (SDL_PollEvent(&e)) {
             if (e.type == SDL_QUIT) {
                 quit = true;
@@ -69,15 +70,21 @@ void GameLoop::start(Graphics* graphics) {
                     }
                 }
                 
-                // Render
-                
-                
             }
             if (needRender) {
                 this->graphics->clear();
                 for(auto sprite: this->sprites) {
                     // Need to improve the rendering system
                     sprite->onRender(graphics);
+                }
+                if (ui) {
+                    bool needUI = false;
+                    for(auto sprite: this->sprites) {
+                        needUI = sprite->onUI(ui);
+                    }
+                    if (needUI) {
+                        ui->refresh();
+                    }
                 }
                 this->graphics->update();
                 needRender = false;
