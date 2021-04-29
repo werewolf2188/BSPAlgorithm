@@ -1,36 +1,25 @@
 //
-//  Graphics.hpp
+//  Graphics.h
 //  BSPAlgorithm
 //
-//  Created by Enrique on 1/23/21.
+//  Created by Enrique on 4/28/21.
 //
 
-#ifndef Graphics_hpp
-#define Graphics_hpp
-#include <SDL2/SDL.h>
-#include <stdio.h>
+#ifndef Graphics_h
+#define Graphics_h
 
 #include "Structs.h"
+
 class Graphics {
-private:
-    SDL_Surface* buffer;
-    SDL_Surface* surface;
-    SDL_Window * window;
-    void* pixels;
-    Rect frame;    
 public:
-    Graphics(SDL_Surface* surface, SDL_Window * window);
-
-    void drawPoint(Point p, Color c);
-    void drawPixel(u_int32_t p, Color c);
-    void drawLine(Point from, Point to, Color c);
-    void drawRect(Rect r, Color c);
-    void drawCircle(Point center, int radius, Color color);
-    void drawDisk(Point center, int radius, Color color);
-    void clear();
-    void update();
+    virtual void drawPoint(Point p, Color c) = 0;
+    virtual void drawLine(Point from, Point to, Color c) = 0;
+    virtual void drawRect(Rect r, Color c) = 0;
+    virtual void drawCircle(Point center, int radius, Color color) = 0;
+    virtual void drawDisk(Point center, int radius, Color color) = 0;
+    virtual void clear() = 0;
+    virtual void update() = 0;
 public:
-    Size getDrawableSize() const;
+    virtual Size getDrawableSize() const = 0;
 };
-
-#endif /* Graphics_hpp */
+#endif /* Graphics_h */

@@ -16,11 +16,12 @@ class Graphics;
 class Window {
 private:
     SDL_Surface *surface = NULL;
+    SDL_Renderer *renderer = NULL;
     SDL_Window *window = NULL;
     GameLoop *gameLoop;
 
     void initialize_window(void);
-    void initialize_surface(void);
+    void initialize_graphics(void);
     void initialize_event_loop(void);
 public:
     Window(GameLoop* gameLoop);

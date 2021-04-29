@@ -15,13 +15,14 @@
 		C260904625C5DB8B00647596 /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C260904425C5DB8B00647596 /* Wall.cpp */; };
 		C26A3ED625C7BDF300D6546B /* TransformedMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26A3ED425C7BDF300D6546B /* TransformedMap.cpp */; };
 		C291D9D5260D890F0019872B /* MapSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C291D9D3260D890F0019872B /* MapSprite.cpp */; };
+		C2ADA520263A3E08006496CF /* RenderGraphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ADA51E263A3E08006496CF /* RenderGraphics.cpp */; };
 		C2CA869E25D3979500264EA4 /* Sector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2CA869C25D3979500264EA4 /* Sector.cpp */; };
 		C2CABE3225CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2CABE3025CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp */; };
 		C2DDB0E525BCF45400BB5E41 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB0E425BCF45400BB5E41 /* main.cpp */; };
 		C2DDB0F025BCF62B00BB5E41 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DDB0EF25BCF62B00BB5E41 /* SDL2.framework */; };
 		C2DDB0F725BCF83700BB5E41 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB0F525BCF83700BB5E41 /* Window.cpp */; };
 		C2DDB0FD25BCFC5B00BB5E41 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB0FC25BCFC5B00BB5E41 /* Color.cpp */; };
-		C2DDB10525BD0A5400BB5E41 /* Graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB10325BD0A5400BB5E41 /* Graphics.cpp */; };
+		C2DDB10525BD0A5400BB5E41 /* SurfaceGraphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB10325BD0A5400BB5E41 /* SurfaceGraphics.cpp */; };
 		C2FE96B025D23BFA0026F309 /* Loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2FE96AE25D23BFA0026F309 /* Loader.cpp */; };
 		C2FE96B725D23C2D0026F309 /* map-clear.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2FE96B325D23C1E0026F309 /* map-clear.txt */; };
 		C2FE96BC25D249590026F309 /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2FE96BA25D249590026F309 /* Vector.cpp */; };
@@ -62,6 +63,9 @@
 		C26A3ED525C7BDF300D6546B /* TransformedMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformedMap.h; sourceTree = "<group>"; };
 		C291D9D3260D890F0019872B /* MapSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapSprite.cpp; sourceTree = "<group>"; };
 		C291D9D4260D890F0019872B /* MapSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapSprite.h; sourceTree = "<group>"; };
+		C2ADA51C263A3C0A006496CF /* Graphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Graphics.h; sourceTree = "<group>"; };
+		C2ADA51E263A3E08006496CF /* RenderGraphics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RenderGraphics.cpp; sourceTree = "<group>"; };
+		C2ADA51F263A3E08006496CF /* RenderGraphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderGraphics.h; sourceTree = "<group>"; };
 		C2CA869C25D3979500264EA4 /* Sector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sector.cpp; sourceTree = "<group>"; };
 		C2CA869D25D3979500264EA4 /* Sector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sector.h; sourceTree = "<group>"; };
 		C2CABE3025CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PerspectiveTransformedMap.cpp; sourceTree = "<group>"; };
@@ -74,8 +78,8 @@
 		C2DDB0F625BCF83700BB5E41 /* Window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
 		C2DDB0FB25BCFB7100BB5E41 /* Structs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Structs.h; sourceTree = "<group>"; };
 		C2DDB0FC25BCFC5B00BB5E41 /* Color.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = "<group>"; };
-		C2DDB10325BD0A5400BB5E41 /* Graphics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Graphics.cpp; sourceTree = "<group>"; };
-		C2DDB10425BD0A5400BB5E41 /* Graphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Graphics.h; sourceTree = "<group>"; };
+		C2DDB10325BD0A5400BB5E41 /* SurfaceGraphics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SurfaceGraphics.cpp; sourceTree = "<group>"; };
+		C2DDB10425BD0A5400BB5E41 /* SurfaceGraphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurfaceGraphics.h; sourceTree = "<group>"; };
 		C2FE96AE25D23BFA0026F309 /* Loader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Loader.cpp; sourceTree = "<group>"; };
 		C2FE96AF25D23BFA0026F309 /* Loader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Loader.h; sourceTree = "<group>"; };
 		C2FE96B325D23C1E0026F309 /* map-clear.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "map-clear.txt"; sourceTree = "<group>"; };
@@ -159,13 +163,16 @@
 				C2DDB0FB25BCFB7100BB5E41 /* Structs.h */,
 				C22A113425BFCA9700113500 /* GameLoop.h */,
 				C22A113325BFCA9700113500 /* GameLoop.cpp */,
-				C2DDB10425BD0A5400BB5E41 /* Graphics.h */,
-				C2DDB10325BD0A5400BB5E41 /* Graphics.cpp */,
+				C2ADA51C263A3C0A006496CF /* Graphics.h */,
+				C2DDB10425BD0A5400BB5E41 /* SurfaceGraphics.h */,
+				C2DDB10325BD0A5400BB5E41 /* SurfaceGraphics.cpp */,
 				C22D12EB25C2648D00DA268C /* Keyboard.h */,
 				C22D12ED25C2656000DA268C /* Mouse.h */,
 				C22D12EF25C265A800DA268C /* Sprite.h */,
 				C2DDB0F625BCF83700BB5E41 /* Window.h */,
 				C2DDB0F525BCF83700BB5E41 /* Window.cpp */,
+				C2ADA51F263A3E08006496CF /* RenderGraphics.h */,
+				C2ADA51E263A3E08006496CF /* RenderGraphics.cpp */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -258,8 +265,9 @@
 				C236EAB025D252B700ADFCDE /* Player.cpp in Sources */,
 				C2FE96BC25D249590026F309 /* Vector.cpp in Sources */,
 				C260904125C5D8D300647596 /* AbsoluteMap.cpp in Sources */,
-				C2DDB10525BD0A5400BB5E41 /* Graphics.cpp in Sources */,
+				C2DDB10525BD0A5400BB5E41 /* SurfaceGraphics.cpp in Sources */,
 				C2FE96B025D23BFA0026F309 /* Loader.cpp in Sources */,
+				C2ADA520263A3E08006496CF /* RenderGraphics.cpp in Sources */,
 				C2DDB0F725BCF83700BB5E41 /* Window.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
