@@ -6,7 +6,13 @@
 //
 
 #include "Window.h"
-#include "Graphics.h"
+#define NEW_DRAWING_ENGINE 1
+
+#if NEW_DRAWING_ENGINE
+#include "RenderGraphics.h"
+#else
+#include "SurfaceGraphics.h"
+#endif
 
 // MARK: Private methods
 void Window::initialize_window() {
@@ -17,11 +23,19 @@ void Window::initialize_window() {
     }
 };
 
-void Window::initialize_surface() {
+void Window::initialize_graphics() {
     if (window) {
+#if NEW_DRAWING_ENGINE
+        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
+        SDL_SetRenderDrawColor(renderer, WHITE.r, WHITE.g, WHITE.b, WHITE.a);
+        SDL_RenderClear(renderer);
+        SDL_RenderPresent(renderer);
+#else
         surface = SDL_GetWindowSurface(window);
         SDL_FillRect(surface, NULL, SDL_MapRGB( surface->format, WHITE.r, WHITE.g, WHITE.b));
         SDL_UpdateWindowSurface(window);
+#endif
+        
     }
 };
 
@@ -36,10 +50,12 @@ void Window::initialize_event_loop() {
 // MARK: Public methods
 Window::Window(GameLoop* gameLoop): gameLoop(gameLoop) {
     initialize_window();
-    initialize_surface();
+    initialize_graphics();
 };
 
 Window::~Window() {
+    SDL_FreeSurface(surface);
+    SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     //Quit SDL subsystems
     SDL_Quit();
@@ -66,5 +82,9 @@ Point Window::getPosition() {
 }
 
 Graphics* Window::getGraphics() {
-    return new Graphics(surface, window);
+#if NEW_DRAWING_ENGINE
+    return new RenderGraphics(renderer, window);
+#else
+    return new SurfaceGraphics(surface, window);
+#endif
 }

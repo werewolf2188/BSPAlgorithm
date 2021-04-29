@@ -5,7 +5,7 @@
 //  Created by Enrique on 1/23/21.
 //
 
-#include "Graphics.h"
+#include "SurfaceGraphics.h"
 #include <cmath>
 
 // MARK: Helpers
@@ -112,26 +112,22 @@ void _drawLine(SDL_Surface* surface, int x1, int y1, int x2, int y2, Color c) {
 }
 
 // MARK: Graphics
-Graphics::Graphics(SDL_Surface* surface, SDL_Window * window):
+SurfaceGraphics::SurfaceGraphics(SDL_Surface* surface, SDL_Window * window):
 surface(surface), window(window) {}
 
-void Graphics::drawPoint(Point p, Color c) {
+void SurfaceGraphics::drawPoint(Point p, Color c) {
     // Dont pass the actual frame
     _drawPoint(buffer, p, c);
 }
 
-void Graphics::drawPixel(u_int32_t p, Color c) {
-    *(((uint32_t*)buffer->pixels) + p) = _fromColor(c);
-}
-
-void Graphics::drawLine(Point from, Point to, Color c) {
+void SurfaceGraphics::drawLine(Point from, Point to, Color c) {
     if (from == to) drawPoint(from, c);
     else if (from.y == to.y) _horLine(buffer, to.y, from.x, to.x, c);
     else if (from.x == to.x) _verLine(buffer, to.x, from.y, to.y, c);
     else _drawLine(buffer, from.x, from.y, to.x, to.y, c);
 }
 
-void Graphics::drawRect(Rect r, Color c) {
+void SurfaceGraphics::drawRect(Rect r, Color c) {
     int x0 = r.position.x;
     int y0 = r.position.y;
     int x1 = r.position.x + r.size.width;
@@ -142,7 +138,7 @@ void Graphics::drawRect(Rect r, Color c) {
     drawLine({ x1, y0}, {x1, y1}, c);
 }
 
-void Graphics::drawCircle(Point center, int radius, Color color) {
+void SurfaceGraphics::drawCircle(Point center, int radius, Color color) {
     int xc = center.x;
     int yc = center.y;
     if(xc - radius < 0 || xc + radius >= surface->w || yc - radius < 0 || yc + radius >= surface->h) return;
@@ -176,7 +172,7 @@ void Graphics::drawCircle(Point center, int radius, Color color) {
     }
 }
 
-void Graphics::drawDisk(Point center, int radius, Color color) {
+void SurfaceGraphics::drawDisk(Point center, int radius, Color color) {
     if(center.x + radius < 0 || center.x - radius >= surface->w || center.y + radius < 0 || center.y - radius >= surface->h) return; //every single pixel outside screen, so don't waste time on it
     int xc = center.x;
     int yc = center.y;
@@ -207,18 +203,18 @@ void Graphics::drawDisk(Point center, int radius, Color color) {
     }
 }
 
-void Graphics::update() {
+void SurfaceGraphics::update() {
     SDL_memcpy(surface->pixels, buffer->pixels, surface->w * surface->h * sizeof(uint32_t));
     SDL_UpdateWindowSurface(window);
     SDL_FreeSurface(buffer);
 }
 
-void Graphics::clear() {
+void SurfaceGraphics::clear() {
     buffer = SDL_DuplicateSurface(surface);
     SDL_FillRect(buffer, NULL, SDL_MapRGB( surface->format, WHITE.r, WHITE.g, WHITE.b));
 }
 
-Size Graphics::getDrawableSize() const {
+Size SurfaceGraphics::getDrawableSize() const {
     Size s;
     SDL_GetWindowSize(this->window, &s.width, &s.height);
     return s;

@@ -415,12 +415,10 @@ void MapSprite::draw_vertical_line(Graphics* g,
     int ny1 = clamp(y1, 0, windowSize.height - 1);
     int ny2 = clamp(y2, 0, windowSize.height - 1);
     if (ny2 == ny1)
-        g->drawPixel(ny1 * windowSize.width + x, middle);
+        g->drawPoint({ x, ny1 }, middle);
     else if (ny2 > ny1) {
-        g->drawPixel(ny1 * windowSize.width + x, top);
-        for (int y = ny1 + 1; y < ny2; ++y) {
-            g->drawPixel(y * windowSize.width + x, middle);
-        }
-        g->drawPixel(ny2 * windowSize.width + x, bottom);
+        g->drawPoint({ x, ny1 }, top);
+        g->drawLine({ x, ny1 + 1 }, { x, ny2 - 1 }, middle);
+        g->drawPoint({ x, ny2 }, bottom);
     }
 }
