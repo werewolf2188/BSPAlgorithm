@@ -283,6 +283,33 @@ bool MapSprite::onKeyPress(const Key &key) {
     return handle;
 }
 
+bool MapSprite::onUI(UI* ui) {
+    UIFrameContext context = ui->BeginFrame("Player information");
+
+    ui->CreateText(context, "Player's position {");
+    ui->CreateText(context, "\tx = %f", player.getPosition().x);
+    ui->CreateText(context, "\ty = %f", player.getPosition().y);
+    ui->CreateText(context, "\tz = %f", player.getPosition().z);
+    ui->CreateText(context, "}");
+
+    ui->CreateText(context, "Player's velocity {");
+    ui->CreateText(context, "\tx = %f", player.getVelocity().x);
+    ui->CreateText(context, "\ty = %f", player.getVelocity().y);
+    ui->CreateText(context, "\tz = %f", player.getVelocity().z);
+    ui->CreateText(context, "}");
+
+    ui->CreateText(context, "Player's angle {");
+    ui->CreateText(context, "\tangle = %f", player.getAngle());
+    ui->CreateText(context, "\tangleCos = %f", player.getAnglecos());
+    ui->CreateText(context, "\tangleSin = %f", player.getAnglesin());
+    ui->CreateText(context, "}");
+    
+    ui->CreateText(context, "Player's yaw = %f", player.getYaw());
+    ui->CreateText(context, "Player's sector = %d", player.getSector());
+    ui->EndFrame(context);
+    return true;
+}
+
 bool MapSprite::onKeyRelease(const Key &key) {
     bool handle = false;
     if (key == SDL_SCANCODE_RCTRL ||

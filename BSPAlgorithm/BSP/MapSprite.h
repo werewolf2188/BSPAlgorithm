@@ -46,5 +46,6 @@ public:
     bool onKeyRelease(const Key &key);
     void onRender(Graphics *g);
     bool onRelativeMouse(Point p);
+    bool onUI(UI* ui);
 };
 #endif /* MapSprite_hpp */

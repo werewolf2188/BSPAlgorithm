@@ -10,6 +10,7 @@
 #include <SDL2/SDL.h>
 #include "Structs.h"
 #include "GameLoop.h"
+#include "UI.h"
 
 class Graphics;
 
@@ -19,6 +20,7 @@ private:
     SDL_Renderer *renderer = NULL;
     SDL_Window *window = NULL;
     GameLoop *gameLoop;
+    UI *ui;
 
     void initialize_window(void);
     void initialize_graphics(void);

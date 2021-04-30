@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C20B1679263B791900CA48D7 /* libImGUISDL.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2B16D22263A518900F7BFFB /* libImGUISDL.dylib */; };
+		C20B1680263B7CFC00CA48D7 /* UI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20B167E263B7CFC00CA48D7 /* UI.cpp */; };
 		C22A113525BFCA9700113500 /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22A113325BFCA9700113500 /* GameLoop.cpp */; };
 		C236EAB025D252B700ADFCDE /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236EAAE25D252B700ADFCDE /* Player.cpp */; };
 		C260903625C5D1E700647596 /* Boundaries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C260903425C5D1E700647596 /* Boundaries.cpp */; };
@@ -16,6 +18,7 @@
 		C26A3ED625C7BDF300D6546B /* TransformedMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26A3ED425C7BDF300D6546B /* TransformedMap.cpp */; };
 		C291D9D5260D890F0019872B /* MapSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C291D9D3260D890F0019872B /* MapSprite.cpp */; };
 		C2ADA520263A3E08006496CF /* RenderGraphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ADA51E263A3E08006496CF /* RenderGraphics.cpp */; };
+		C2B16D23263A518900F7BFFB /* libImGUISDL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B16D22263A518900F7BFFB /* libImGUISDL.dylib */; };
 		C2CA869E25D3979500264EA4 /* Sector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2CA869C25D3979500264EA4 /* Sector.cpp */; };
 		C2CABE3225CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2CABE3025CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp */; };
 		C2DDB0E525BCF45400BB5E41 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB0E425BCF45400BB5E41 /* main.cpp */; };
@@ -29,6 +32,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C20B1677263B781F00CA48D7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/local/lib;
+			dstSubfolderSpec = 0;
+			files = (
+				C20B1679263B791900CA48D7 /* libImGUISDL.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2DDB0DF25BCF45400BB5E41 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
@@ -42,6 +55,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C20B167E263B7CFC00CA48D7 /* UI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UI.cpp; sourceTree = "<group>"; };
+		C20B167F263B7CFC00CA48D7 /* UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UI.h; sourceTree = "<group>"; };
 		C22A113325BFCA9700113500 /* GameLoop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameLoop.cpp; sourceTree = "<group>"; };
 		C22A113425BFCA9700113500 /* GameLoop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameLoop.h; sourceTree = "<group>"; };
 		C22D12EB25C2648D00DA268C /* Keyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Keyboard.h; sourceTree = "<group>"; };
@@ -66,6 +81,8 @@
 		C2ADA51C263A3C0A006496CF /* Graphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Graphics.h; sourceTree = "<group>"; };
 		C2ADA51E263A3E08006496CF /* RenderGraphics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RenderGraphics.cpp; sourceTree = "<group>"; };
 		C2ADA51F263A3E08006496CF /* RenderGraphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderGraphics.h; sourceTree = "<group>"; };
+		C2B16CF8263A4F7C00F7BFFB /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		C2B16D22263A518900F7BFFB /* libImGUISDL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libImGUISDL.dylib; path = BSPAlgorithm/Libraries/ImGUISDL/libImGUISDL.dylib; sourceTree = "<group>"; };
 		C2CA869C25D3979500264EA4 /* Sector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sector.cpp; sourceTree = "<group>"; };
 		C2CA869D25D3979500264EA4 /* Sector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sector.h; sourceTree = "<group>"; };
 		C2CABE3025CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PerspectiveTransformedMap.cpp; sourceTree = "<group>"; };
@@ -92,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2B16D23263A518900F7BFFB /* libImGUISDL.dylib in Frameworks */,
 				C2DDB0F025BCF62B00BB5E41 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,16 +124,32 @@
 				C260903F25C5D8D300647596 /* AbsoluteMap.cpp */,
 				C260903525C5D1E700647596 /* Boundaries.h */,
 				C260903425C5D1E700647596 /* Boundaries.cpp */,
-				C260903B25C5D54A00647596 /* Player.h */,
-				C260903A25C5D54A00647596 /* Player.cpp */,
 				C2CABE3125CBB0AE00DA1B6A /* PerspectiveTransformedMap.h */,
 				C2CABE3025CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp */,
+				C260903B25C5D54A00647596 /* Player.h */,
+				C260903A25C5D54A00647596 /* Player.cpp */,
 				C26A3ED525C7BDF300D6546B /* TransformedMap.h */,
 				C26A3ED425C7BDF300D6546B /* TransformedMap.cpp */,
 				C260904525C5DB8B00647596 /* Wall.h */,
 				C260904425C5DB8B00647596 /* Wall.cpp */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		C2B16CF9263A4F8900F7BFFB /* ThirdParties */ = {
+			isa = PBXGroup;
+			children = (
+				C2B16CFA263A4F9300F7BFFB /* ImGUISDL */,
+			);
+			name = ThirdParties;
+			sourceTree = "<group>";
+		};
+		C2B16CFA263A4F9300F7BFFB /* ImGUISDL */ = {
+			isa = PBXGroup;
+			children = (
+				C2B16CF8263A4F7C00F7BFFB /* include */,
+			);
+			path = ImGUISDL;
 			sourceTree = "<group>";
 		};
 		C2DDB0D825BCF45400BB5E41 = {
@@ -138,6 +172,7 @@
 		C2DDB0E325BCF45400BB5E41 /* BSPAlgorithm */ = {
 			isa = PBXGroup;
 			children = (
+				C2B16CF9263A4F8900F7BFFB /* ThirdParties */,
 				C2FE96AD25D23BD00026F309 /* BSP */,
 				C2DDB0F225BCF7E100BB5E41 /* Classes */,
 				C260903325C5D18300647596 /* Test */,
@@ -151,6 +186,7 @@
 		C2DDB0EE25BCF62B00BB5E41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2B16D22263A518900F7BFFB /* libImGUISDL.dylib */,
 				C2DDB0EF25BCF62B00BB5E41 /* SDL2.framework */,
 			);
 			name = Frameworks;
@@ -160,19 +196,21 @@
 			isa = PBXGroup;
 			children = (
 				C2DDB0FC25BCFC5B00BB5E41 /* Color.cpp */,
-				C2DDB0FB25BCFB7100BB5E41 /* Structs.h */,
 				C22A113425BFCA9700113500 /* GameLoop.h */,
 				C22A113325BFCA9700113500 /* GameLoop.cpp */,
 				C2ADA51C263A3C0A006496CF /* Graphics.h */,
-				C2DDB10425BD0A5400BB5E41 /* SurfaceGraphics.h */,
-				C2DDB10325BD0A5400BB5E41 /* SurfaceGraphics.cpp */,
 				C22D12EB25C2648D00DA268C /* Keyboard.h */,
 				C22D12ED25C2656000DA268C /* Mouse.h */,
-				C22D12EF25C265A800DA268C /* Sprite.h */,
-				C2DDB0F625BCF83700BB5E41 /* Window.h */,
-				C2DDB0F525BCF83700BB5E41 /* Window.cpp */,
 				C2ADA51F263A3E08006496CF /* RenderGraphics.h */,
 				C2ADA51E263A3E08006496CF /* RenderGraphics.cpp */,
+				C22D12EF25C265A800DA268C /* Sprite.h */,
+				C2DDB0FB25BCFB7100BB5E41 /* Structs.h */,
+				C2DDB10425BD0A5400BB5E41 /* SurfaceGraphics.h */,
+				C2DDB10325BD0A5400BB5E41 /* SurfaceGraphics.cpp */,
+				C2DDB0F625BCF83700BB5E41 /* Window.h */,
+				C2DDB0F525BCF83700BB5E41 /* Window.cpp */,
+				C20B167F263B7CFC00CA48D7 /* UI.h */,
+				C20B167E263B7CFC00CA48D7 /* UI.cpp */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -183,6 +221,8 @@
 				C24B678D25D4E1390021737F /* Constants.h */,
 				C2FE96AF25D23BFA0026F309 /* Loader.h */,
 				C2FE96AE25D23BFA0026F309 /* Loader.cpp */,
+				C291D9D4260D890F0019872B /* MapSprite.h */,
+				C291D9D3260D890F0019872B /* MapSprite.cpp */,
 				C24B678F25D4E4B60021737F /* Math.h */,
 				C236EAAF25D252B700ADFCDE /* Player.h */,
 				C236EAAE25D252B700ADFCDE /* Player.cpp */,
@@ -190,8 +230,6 @@
 				C2CA869C25D3979500264EA4 /* Sector.cpp */,
 				C2FE96BB25D249590026F309 /* Vector.h */,
 				C2FE96BA25D249590026F309 /* Vector.cpp */,
-				C291D9D4260D890F0019872B /* MapSprite.h */,
-				C291D9D3260D890F0019872B /* MapSprite.cpp */,
 			);
 			path = BSP;
 			sourceTree = "<group>";
@@ -206,6 +244,7 @@
 				C2DDB0DD25BCF45400BB5E41 /* Sources */,
 				C2DDB0DE25BCF45400BB5E41 /* Frameworks */,
 				C2DDB0DF25BCF45400BB5E41 /* CopyFiles */,
+				C20B1677263B781F00CA48D7 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -259,6 +298,7 @@
 				C2CA869E25D3979500264EA4 /* Sector.cpp in Sources */,
 				C2CABE3225CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp in Sources */,
 				C260903C25C5D54A00647596 /* Player.cpp in Sources */,
+				C20B1680263B7CFC00CA48D7 /* UI.cpp in Sources */,
 				C2DDB0FD25BCFC5B00BB5E41 /* Color.cpp in Sources */,
 				C22A113525BFCA9700113500 /* GameLoop.cpp in Sources */,
 				C260903625C5D1E700647596 /* Boundaries.cpp in Sources */,
@@ -389,11 +429,18 @@
 		C2DDB0E925BCF45400BB5E41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = BSPAlgorithm/BSPAlgorithm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F647UR2ZKE;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = /Users/werewolf2188/Proyectos/BSPAlgorithm/BSPAlgorithm/Libraries/ImGUISDL;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BSPAlgorithm/Libraries/ImGUISDL",
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -401,11 +448,18 @@
 		C2DDB0EA25BCF45400BB5E41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = BSPAlgorithm/BSPAlgorithm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F647UR2ZKE;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = /Users/werewolf2188/Proyectos/BSPAlgorithm/BSPAlgorithm/Libraries/ImGUISDL;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BSPAlgorithm/Libraries/ImGUISDL",
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

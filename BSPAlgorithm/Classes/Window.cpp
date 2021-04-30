@@ -16,6 +16,9 @@
 
 // MARK: Private methods
 void Window::initialize_window() {
+#if NEW_DRAWING_ENGINE
+    ui = new UI();
+#endif
     if(SDL_Init(SDL_INIT_VIDEO) >= 0 ) {
         SDL_DisplayMode mode = { SDL_PIXELFORMAT_UNKNOWN, 0, 0, 0, 0 };
         SDL_GetCurrentDisplayMode(0, &mode);
@@ -30,6 +33,10 @@ void Window::initialize_graphics() {
         SDL_SetRenderDrawColor(renderer, WHITE.r, WHITE.g, WHITE.b, WHITE.a);
         SDL_RenderClear(renderer);
         SDL_RenderPresent(renderer);
+
+        SDL_DisplayMode mode = { SDL_PIXELFORMAT_UNKNOWN, 0, 0, 0, 0 };
+        SDL_GetCurrentDisplayMode(0, &mode);
+        ui->initialize(renderer, { mode.w, mode.h });
 #else
         surface = SDL_GetWindowSurface(window);
         SDL_FillRect(surface, NULL, SDL_MapRGB( surface->format, WHITE.r, WHITE.g, WHITE.b));
@@ -42,7 +49,7 @@ void Window::initialize_graphics() {
 void Window::initialize_event_loop() {
     if (window) {
         if (gameLoop) {
-            gameLoop->start(getGraphics());
+            gameLoop->start(getGraphics(), ui);
         }
     }
 };

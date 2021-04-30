@@ -12,6 +12,7 @@
 #include "Graphics.h"
 #include "Structs.h"
 #include "Sprite.h"
+#include "UI.h"
 #include <vector>
 
 class GameLoop {
@@ -22,6 +23,6 @@ public:
     GameLoop();
     ~GameLoop();
     void addSprites(Sprite *sprite);
-    void start(Graphics* graphics);
+    void start(Graphics* graphics, UI* ui);
 };
 #endif /* GameLoop_hpp */
