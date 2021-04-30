@@ -1,12 +1,12 @@
 //
-//  GameLoop.hpp
+//  GameLoop.h
 //  BSPAlgorithm
 //
-//  Created by Enrique on 1/25/21.
+//  Created by Enrique on 4/30/21.
 //
 
-#ifndef GameLoop_hpp
-#define GameLoop_hpp
+#ifndef GameLoop_h
+#define GameLoop_h
 
 #include <stdio.h>
 #include "Graphics.h"
@@ -16,13 +16,9 @@
 #include <vector>
 
 class GameLoop {
-private:
-    Graphics* graphics;
-    std::vector<Sprite*> sprites;
 public:
-    GameLoop();
-    ~GameLoop();
-    void addSprites(Sprite *sprite);
-    void start(Graphics* graphics, UI* ui);
+    virtual void addSprites(Sprite *sprite) = 0;
+    virtual void start(Graphics* graphics, UI* ui) = 0;
 };
-#endif /* GameLoop_hpp */
+
+#endif /* GameLoop_h */

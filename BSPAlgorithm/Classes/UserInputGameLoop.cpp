@@ -5,24 +5,24 @@
 //  Created by Enrique on 1/25/21.
 //
 
-#include "GameLoop.h"
+#include "UserInputGameLoop.h"
 #include <SDL2/SDL.h>
 #include "Keyboard.h"
 #include "Mouse.h"
 
-GameLoop::GameLoop() {
+UserInputGameLoop::UserInputGameLoop() {
     
 }
 
-GameLoop::~GameLoop() {
+UserInputGameLoop::~UserInputGameLoop() {
     delete graphics;
 }
 
-void GameLoop::addSprites(Sprite *sprite) {
+void UserInputGameLoop::addSprites(Sprite *sprite) {
     this->sprites.push_back(sprite);
 }
 
-void GameLoop::start(Graphics* graphics, UI* ui) {
+void UserInputGameLoop::start(Graphics* graphics, UI* ui) {
     SDL_Event e;
     SDL_ShowCursor(SDL_DISABLE);
     this->graphics = graphics;
