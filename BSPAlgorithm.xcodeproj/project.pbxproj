@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C20B1679263B791900CA48D7 /* libImGUISDL.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2B16D22263A518900F7BFFB /* libImGUISDL.dylib */; };
 		C20B1680263B7CFC00CA48D7 /* UI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20B167E263B7CFC00CA48D7 /* UI.cpp */; };
-		C22A113525BFCA9700113500 /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22A113325BFCA9700113500 /* GameLoop.cpp */; };
+		C22A113525BFCA9700113500 /* UserInputGameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22A113325BFCA9700113500 /* UserInputGameLoop.cpp */; };
 		C236EAB025D252B700ADFCDE /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236EAAE25D252B700ADFCDE /* Player.cpp */; };
 		C260903625C5D1E700647596 /* Boundaries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C260903425C5D1E700647596 /* Boundaries.cpp */; };
 		C260903C25C5D54A00647596 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C260903A25C5D54A00647596 /* Player.cpp */; };
@@ -26,6 +26,7 @@
 		C2DDB0F725BCF83700BB5E41 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB0F525BCF83700BB5E41 /* Window.cpp */; };
 		C2DDB0FD25BCFC5B00BB5E41 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB0FC25BCFC5B00BB5E41 /* Color.cpp */; };
 		C2DDB10525BD0A5400BB5E41 /* SurfaceGraphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DDB10325BD0A5400BB5E41 /* SurfaceGraphics.cpp */; };
+		C2EB2B63263CD38100CEDE89 /* PollingGameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EB2B61263CD38100CEDE89 /* PollingGameLoop.cpp */; };
 		C2FE96B025D23BFA0026F309 /* Loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2FE96AE25D23BFA0026F309 /* Loader.cpp */; };
 		C2FE96B725D23C2D0026F309 /* map-clear.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2FE96B325D23C1E0026F309 /* map-clear.txt */; };
 		C2FE96BC25D249590026F309 /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2FE96BA25D249590026F309 /* Vector.cpp */; };
@@ -57,8 +58,9 @@
 /* Begin PBXFileReference section */
 		C20B167E263B7CFC00CA48D7 /* UI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UI.cpp; sourceTree = "<group>"; };
 		C20B167F263B7CFC00CA48D7 /* UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UI.h; sourceTree = "<group>"; };
-		C22A113325BFCA9700113500 /* GameLoop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameLoop.cpp; sourceTree = "<group>"; };
-		C22A113425BFCA9700113500 /* GameLoop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameLoop.h; sourceTree = "<group>"; };
+		C2189230263CCE5700705209 /* GameLoop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameLoop.h; sourceTree = "<group>"; };
+		C22A113325BFCA9700113500 /* UserInputGameLoop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UserInputGameLoop.cpp; sourceTree = "<group>"; };
+		C22A113425BFCA9700113500 /* UserInputGameLoop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInputGameLoop.h; sourceTree = "<group>"; };
 		C22D12EB25C2648D00DA268C /* Keyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Keyboard.h; sourceTree = "<group>"; };
 		C22D12ED25C2656000DA268C /* Mouse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mouse.h; sourceTree = "<group>"; };
 		C22D12EF25C265A800DA268C /* Sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
@@ -97,6 +99,8 @@
 		C2DDB0FC25BCFC5B00BB5E41 /* Color.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = "<group>"; };
 		C2DDB10325BD0A5400BB5E41 /* SurfaceGraphics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SurfaceGraphics.cpp; sourceTree = "<group>"; };
 		C2DDB10425BD0A5400BB5E41 /* SurfaceGraphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurfaceGraphics.h; sourceTree = "<group>"; };
+		C2EB2B61263CD38100CEDE89 /* PollingGameLoop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PollingGameLoop.cpp; sourceTree = "<group>"; };
+		C2EB2B62263CD38100CEDE89 /* PollingGameLoop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PollingGameLoop.h; sourceTree = "<group>"; };
 		C2FE96AE25D23BFA0026F309 /* Loader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Loader.cpp; sourceTree = "<group>"; };
 		C2FE96AF25D23BFA0026F309 /* Loader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Loader.h; sourceTree = "<group>"; };
 		C2FE96B325D23C1E0026F309 /* map-clear.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "map-clear.txt"; sourceTree = "<group>"; };
@@ -196,11 +200,12 @@
 			isa = PBXGroup;
 			children = (
 				C2DDB0FC25BCFC5B00BB5E41 /* Color.cpp */,
-				C22A113425BFCA9700113500 /* GameLoop.h */,
-				C22A113325BFCA9700113500 /* GameLoop.cpp */,
+				C2189230263CCE5700705209 /* GameLoop.h */,
 				C2ADA51C263A3C0A006496CF /* Graphics.h */,
 				C22D12EB25C2648D00DA268C /* Keyboard.h */,
 				C22D12ED25C2656000DA268C /* Mouse.h */,
+				C2EB2B62263CD38100CEDE89 /* PollingGameLoop.h */,
+				C2EB2B61263CD38100CEDE89 /* PollingGameLoop.cpp */,
 				C2ADA51F263A3E08006496CF /* RenderGraphics.h */,
 				C2ADA51E263A3E08006496CF /* RenderGraphics.cpp */,
 				C22D12EF25C265A800DA268C /* Sprite.h */,
@@ -211,6 +216,8 @@
 				C2DDB0F525BCF83700BB5E41 /* Window.cpp */,
 				C20B167F263B7CFC00CA48D7 /* UI.h */,
 				C20B167E263B7CFC00CA48D7 /* UI.cpp */,
+				C22A113425BFCA9700113500 /* UserInputGameLoop.h */,
+				C22A113325BFCA9700113500 /* UserInputGameLoop.cpp */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -298,9 +305,10 @@
 				C2CA869E25D3979500264EA4 /* Sector.cpp in Sources */,
 				C2CABE3225CBB0AE00DA1B6A /* PerspectiveTransformedMap.cpp in Sources */,
 				C260903C25C5D54A00647596 /* Player.cpp in Sources */,
+				C2EB2B63263CD38100CEDE89 /* PollingGameLoop.cpp in Sources */,
 				C20B1680263B7CFC00CA48D7 /* UI.cpp in Sources */,
 				C2DDB0FD25BCFC5B00BB5E41 /* Color.cpp in Sources */,
-				C22A113525BFCA9700113500 /* GameLoop.cpp in Sources */,
+				C22A113525BFCA9700113500 /* UserInputGameLoop.cpp in Sources */,
 				C260903625C5D1E700647596 /* Boundaries.cpp in Sources */,
 				C236EAB025D252B700ADFCDE /* Player.cpp in Sources */,
 				C2FE96BC25D249590026F309 /* Vector.cpp in Sources */,

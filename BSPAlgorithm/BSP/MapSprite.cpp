@@ -266,7 +266,7 @@ bool MapSprite::onKeyPress(const Key &key) {
 
     player.setVelocity({ player.getVelocity().x * (1 - acceleration) + mov.x * acceleration,
                          player.getVelocity().y * (1 - acceleration) + mov.y * acceleration,
-                        0.0f
+                         player.getVelocity().z
     });
     if(pushing) {
         moving = 1;
@@ -312,6 +312,28 @@ bool MapSprite::onUI(UI* ui) {
 
 bool MapSprite::onKeyRelease(const Key &key) {
     bool handle = false;
+
+    // This is not in the original but I'll leave it to fix the issue with the jump and the drag
+    // It is still kind of buggy but it's better than last time.
+    player.setVelocity({ player.getVelocity().x / 1.5f,
+                         player.getVelocity().y / 1.5f,
+                         player.getVelocity().z / 1.5f
+    });
+    if (key == SDL_SCANCODE_SPACE && !ground && abs(player.getVelocity().z) > 0.01f) {
+        handle_falling();
+        return false;
+    }
+    moving = true;
+    if (abs(player.getVelocity().x) < 0.0001f &&
+        abs(player.getVelocity().y) < 0.0001f &&
+        abs(player.getVelocity().z ) < 0.0001f) {
+        player.setVelocity({ 0.0f,
+                             0.0f,
+                            0.0f
+        });
+        handle = true;
+    }
+    //
     if (key == SDL_SCANCODE_RCTRL ||
         key == SDL_SCANCODE_LCTRL) {
         ducking = false;
