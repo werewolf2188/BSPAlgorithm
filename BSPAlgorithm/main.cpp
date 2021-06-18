@@ -26,7 +26,6 @@
 #endif
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
     
 #if TEST
     GameLoop *gameLoop = new UserInputGameLoop;
