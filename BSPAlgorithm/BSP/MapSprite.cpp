@@ -9,7 +9,7 @@
 #include "Constants.h"
 #include "Math.h"
 #include <iostream>
-#include <queue>
+#include "../Utils/CQueue.h"
 
 struct Item {
     unsigned int sectorno;
@@ -40,12 +40,8 @@ void MapSprite::onRender(Graphics *g) {
     const Size windowSize = g->getDrawableSize();
     const int max_queues = 32;
 
-//    std::queue<Item> queue;
-    Item queue[max_queues];
-    Item *head = queue; // They are referencing the same spot
-    Item *tail = queue; // That means when I assign head, I also assign tail.
+    CircularQueue<Item, max_queues> cqueue;
 
-    //
     int ytop[windowSize.width];
     int ybottom[windowSize.width];
     int renderedsectors[loader.getSectors().size()];
@@ -54,21 +50,12 @@ void MapSprite::onRender(Graphics *g) {
     for(int x = 0; x < windowSize.width; ++x) ytop[x] = 0;
     for(int x = 0; x < windowSize.width; ++x) ybottom[x] = windowSize.height - 1;
     for(int n = 0; n < loader.getSectors().size(); ++n) renderedsectors[n] = 0;
-
     //
-//    queue.push({ loader.getPlayerInitialLocation().getSector(), 0, windowSize.width - 1});
-    *head = { player.getSector(), 0, windowSize.width - 1 };
-    // ++head is moving the pointer before checking if it is in the end of the queue
-    if(++head == queue + max_queues) { // TODO: This is making a circular queue to reset to position 0
-        head = queue;
-    }
+
+    cqueue.enque({ player.getSector(), 0, windowSize.width - 1 });
     
     do {
-        const Item now = *tail;
-        // ++tail is moving the pointer before checking if it is in the end of the queue
-        if(++tail == queue + max_queues) { // TODO: This is making a circular queue to reset to position 0
-            tail = queue;
-        }
+        const Item now = cqueue.deque();
         // 0x21 = 33
         // 0x20 = 32
         if(renderedsectors[now.sectorno] & 0x21) {
@@ -79,53 +66,66 @@ void MapSprite::onRender(Graphics *g) {
         Sector *sector = loader.getSectors()[now.sectorno];
         for (int s = 0; s < sector->getNPoints(); s++) {
             // Preparing drawing
-            // TODO: There are many floats that can become Vector2 in the future
             /* Acquire the x,y coordinates of the two endpoints (vertices) of this edge of the sector */
-            float vx1 = sector->getVertices()[s + 0]->x - player.getPosition().x;
-            float vy1 = sector->getVertices()[s + 0]->y - player.getPosition().y;
-            float vx2 = sector->getVertices()[s + 1]->x - player.getPosition().x;
-            float vy2 = sector->getVertices()[s + 1]->y - player.getPosition().y;
+            Vector3 v1 = *sector->getVertices()[s + 0] - player.getPosition();
+            Vector3 v2 = *sector->getVertices()[s + 1] - player.getPosition();
             /* Rotate them around the player's view */
             float pcos = player.getAnglecos();
             float psin = player.getAnglesin();
-            float tx1 = vx1 * psin - vy1 * pcos;
-            float tz1 = vx1 * pcos + vy1 * psin;
-            float tx2 = vx2 * psin - vy2 * pcos;
-            float tz2 = vx2 * pcos + vy2 * psin;
+            Vector2 t1 = {
+                v1.x * psin - v1.y * pcos,
+                v1.x * pcos + v1.y * psin
+            };
+            Vector2 t2 = {
+                v2.x * psin - v2.y * pcos,
+                v2.x * pcos + v2.y * psin
+            };
             /* Is the wall at least partially in front of the player? */
-            if(tz1 <= 0 && tz2 <= 0) continue;
+            if(t1.y <= 0 && t2.y <= 0) continue;
             /* If it's partially behind the player, clip it against player's view frustrum */
-            if(tz1 <= 0 || tz2 <= 0) {
+            if(t1.y <= 0 || t2.y <= 0) {
                 float nearz = 1e-4f, farz = 5, nearside = 1e-5f, farside = 20.f;
                 // Find an intersection between the wall and the approximate edges of player's view
-                Vector2 i1 = intersect({ tx1, tz1 }, { tx2, tz2 }, { -nearside, nearz }, { -farside, farz });
-                Vector2 i2 = intersect({ tx1, tz1 }, { tx2, tz2 }, { nearside, nearz }, { farside, farz });
-                if(tz1 < nearz) {
+                Vector2 i1 = intersect(t1, t2, { -nearside, nearz }, { -farside, farz });
+                Vector2 i2 = intersect(t1, t2, { nearside, nearz }, { farside, farz });
+                if(t1.y < nearz) {
                     if(i1.y > 0) {
-                        tx1 = i1.x;
-                        tz1 = i1.y;
+                        t1 = {
+                            i1.x,
+                            i1.y
+                        };
                     } else {
-                        tx1 = i2.x;
-                        tz1 = i2.y;
+                        t1 = {
+                            i2.x,
+                            i2.y
+                        };
                     }
                 }
-                if(tz2 < nearz) {
+                if(t2.y < nearz) {
                     if(i1.y > 0) {
-                        tx2 = i1.x;
-                        tz2 = i1.y;
+                        t2 = {
+                            i1.x,
+                            i1.y
+                        };
                     } else {
-                        tx2 = i2.x;
-                        tz2 = i2.y;
+                        t2 = {
+                            i2.x,
+                            i2.y
+                        };
                     }
                 }
             }
             /* Do perspective transformation */
-            float xscale1 = hfov(windowSize.height) / tz1;
-            float yscale1 = vfov(windowSize.height) / tz1;
-            int x1 = windowSize.width/2 - (int)(tx1 * xscale1);
-            float xscale2 = hfov(windowSize.height) / tz2;
-            float yscale2 = vfov(windowSize.height) / tz2;
-            int x2 = windowSize.width/2 - (int)(tx2 * xscale2);
+            Vector2 scale1 = {
+                hfov(windowSize.height) / t1.y,
+                vfov(windowSize.height) / t1.y
+            };
+            int x1 = windowSize.width/2 - (int)(t1.x * scale1.x);
+            Vector2 scale2 = {
+                hfov(windowSize.height) / t2.y,
+                vfov(windowSize.height) / t2.y
+            };
+            int x2 = windowSize.width/2 - (int)(t2.x * scale2.x);
             if(x1 >= x2 || x2 < now.sx1 || x1 > now.sx2) {
                 continue; // Only render if it's visible
             }
@@ -143,21 +143,21 @@ void MapSprite::onRender(Graphics *g) {
                 player.getPosition().z;
             }
             /* Project our ceiling & floor heights into screen coordinates (Y coordinate) */
-            int y1a = windowSize.height / 2 - (int)(yaw(yceil, tz1) * yscale1);
-            int y1b = windowSize.height / 2 - (int)(yaw(yfloor, tz1) * yscale1);
-            int y2a = windowSize.height / 2 - (int)(yaw(yceil, tz2) * yscale2);
-            int y2b = windowSize.height / 2 - (int)(yaw(yfloor, tz2) * yscale2);
+            int y1a = windowSize.height / 2 - (int)(yaw(yceil, t1.y) * scale1.y);
+            int y1b = windowSize.height / 2 - (int)(yaw(yfloor, t1.y) * scale1.y);
+            int y2a = windowSize.height / 2 - (int)(yaw(yceil, t2.y) * scale2.y);
+            int y2b = windowSize.height / 2 - (int)(yaw(yfloor, t2.y) * scale2.y);
             /* The same for the neighboring sector */
-            int ny1a = windowSize.height / 2 - (int)(yaw(nyceil, tz1) * yscale1);
-            int ny1b = windowSize.height / 2 - (int)(yaw(nyfloor, tz1) * yscale1);
-            int ny2a = windowSize.height / 2 - (int)(yaw(nyceil, tz2) * yscale2);
-            int ny2b = windowSize.height / 2 - (int)(yaw(nyfloor, tz2) * yscale2);
+            int ny1a = windowSize.height / 2 - (int)(yaw(nyceil, t1.y) * scale1.y);
+            int ny1b = windowSize.height / 2 - (int)(yaw(nyfloor, t1.y) * scale1.y);
+            int ny2a = windowSize.height / 2 - (int)(yaw(nyceil, t2.y) * scale2.y);
+            int ny2b = windowSize.height / 2 - (int)(yaw(nyfloor, t2.y) * scale2.y);
             /* Render the wall. */
             int beginx = std::max(x1, now.sx1);
             int endx = std::min(x2, now.sx2);
             for(int x = beginx; x <= endx; ++x) {
                 /* Calculate the Z coordinate for this point. (Only used for lighting.) */
-                int z = ((x - x1) * (tz2-tz1) / (x2-x1) + tz1) * 8;
+                int z = ((x - x1) * (t2.y-t1.y) / (x2-x1) + t1.y) * 8;
                 /* Acquire the Y coordinates for our ceiling & floor for this X coordinate. Clamp them. */
                 int ya = (x - x1) * (y2a-y1a) / (x2-x1) + y1a; // top
                 int cya = clamp(ya, ytop[x], ybottom[x]); // top
@@ -200,18 +200,15 @@ void MapSprite::onRender(Graphics *g) {
                 }
             }
             /* Schedule the neighboring sector for rendering within the window formed by this wall. */
-            int queue_position = (head + max_queues + 1 - tail) % max_queues; // This checks the position of the circular queue
+            int queue_position = cqueue.queuePosition(); // This checks the position of the circular queue
+    
             if(neighbor >= 0 && endx >= beginx && queue_position) {
-                *head = { static_cast<unsigned int>(neighbor), beginx, endx };
-                // ++head is moving the pointer before checking if it is in the end of the queue
-                if(++head == queue + max_queues) { // TODO: This is making a circular queue to reset to position 0
-                    head = queue;
-                }
+                cqueue.enque({ static_cast<unsigned int>(neighbor), beginx, endx });
             }
         }
     // for s in sector's edges
     ++renderedsectors[now.sectorno];
-    } while (head != tail);
+    } while (!cqueue.empty());
 
 //    std::cout << "Render" << std::endl;
 }
@@ -226,26 +223,36 @@ bool MapSprite::onRelativeMouse(Point p) {
 bool MapSprite::onKeyPress(const Key &key) {
     bool handle = false;
     bool pushing = false;
+    const float difference = 0.2f;
+
     Vector2 mov = { 0, 0 };
     if (key == SDL_SCANCODE_W) {
-        mov.x += player.getAnglecos() * 0.2f;
-        mov.y += player.getAnglesin() * 0.2f;
+        mov = mov + (Vector2){
+            player.getAnglecos() * difference,
+            player.getAnglesin() * difference
+        };
         pushing = true;
         handle = true;
     } else if (key == SDL_SCANCODE_S) {
-        mov.x -= player.getAnglecos() * 0.2f;
-        mov.y -= player.getAnglesin() * 0.2f;
+        mov = mov - (Vector2){
+            player.getAnglecos() * difference,
+            player.getAnglesin() * difference
+        };
         pushing = true;
         handle = true;
     }
     if (key == SDL_SCANCODE_A) {
-        mov.x += player.getAnglesin() * 0.2f;
-        mov.y -= player.getAnglecos() * 0.2f;
+        mov = mov + (Vector2){
+            player.getAnglesin() * difference,
+            player.getAnglecos() * difference * -1
+        };
         pushing = true;
         handle = true;
     } else if (key == SDL_SCANCODE_D) {
-        mov.x -= player.getAnglesin() * 0.2f;
-        mov.y += player.getAnglecos() * 0.2f;
+        mov = mov + (Vector2){
+            player.getAnglesin() * difference * -1,
+            player.getAnglecos() * difference
+        };
         pushing = true;
         handle = true;
     }

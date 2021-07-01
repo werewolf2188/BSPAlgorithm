@@ -57,6 +57,10 @@ void PollingGameLoop::start(Graphics* graphics, UI* ui) {
             }
             if (e.type == SDL_KEYDOWN) {
                 const Key key = SDL_GetKeyboardState(NULL);
+                if (key == SDL_SCANCODE_Q) {
+                    quit = true;
+                    break;
+                }
                 KeyEvent k;
                 k.key = key;
                 k.event = e.type;
