@@ -68,6 +68,7 @@
 		C236EAAF25D252B700ADFCDE /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		C24B678D25D4E1390021737F /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		C24B678F25D4E4B60021737F /* Math.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Math.h; sourceTree = "<group>"; };
+		C2596627268D666E00BD03C1 /* CQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQueue.h; sourceTree = "<group>"; };
 		C260903425C5D1E700647596 /* Boundaries.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Boundaries.cpp; sourceTree = "<group>"; };
 		C260903525C5D1E700647596 /* Boundaries.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Boundaries.h; sourceTree = "<group>"; };
 		C260903A25C5D54A00647596 /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
@@ -121,6 +122,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C2596625268D666100BD03C1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C2596627268D666E00BD03C1 /* CQueue.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		C260903325C5D18300647596 /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +185,7 @@
 		C2DDB0E325BCF45400BB5E41 /* BSPAlgorithm */ = {
 			isa = PBXGroup;
 			children = (
+				C2596625268D666100BD03C1 /* Utils */,
 				C2B16CF9263A4F8900F7BFFB /* ThirdParties */,
 				C2FE96AD25D23BD00026F309 /* BSP */,
 				C2DDB0F225BCF7E100BB5E41 /* Classes */,
