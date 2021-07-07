@@ -29,6 +29,10 @@ There are three main folders in this project.
 
 There are other folder such as `ThirdParties` and `Utils` but they are only for helping the BSP algorithm to shine.
 
+## Known bugs
+
+There's only one small bug, where you can jump but the next input does not get detected. That's because, if you press two keys and release one, the other key gets ignored since a key up event already happen. That can be fixed in the event pool, but this project is only an experiment.
+
 # Contact
 
 If you have a question, please contact me at [werewolf2188@gmail.com](emailto:werewolf2188@gmail.com)
