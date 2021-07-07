@@ -35,7 +35,7 @@ There's only one small bug, where you can jump but the next input does not get d
 
 # Contact
 
-If you have a question, please contact me at [werewolf2188@gmail.com](emailto:werewolf2188@gmail.com)
+If you have a question, please contact me at [werewolf2188@gmail.com](mailto:werewolf2188@gmail.com)
 
 # References
 
