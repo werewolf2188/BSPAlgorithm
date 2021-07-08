@@ -29,7 +29,7 @@ There are three main folders in this project.
 
 There are other folder such as `ThirdParties` and `Utils` but they are only for helping the BSP algorithm to shine.
 
-![Demo](lowe,gif)
+![Demo](lowe.gif)
 
 ## Known bugs
 
