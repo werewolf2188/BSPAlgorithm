@@ -15,7 +15,7 @@
 #include "Graphics.h"
 class RenderGraphics: public Graphics {
 private:
-    SDL_Texture* buffer;
+//    SDL_Texture* buffer;
     SDL_Renderer* renderer;
     SDL_Window * window;
     void* pixels;

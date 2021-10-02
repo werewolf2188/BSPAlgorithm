@@ -97,16 +97,18 @@ void RenderGraphics::drawDisk(Point center, int radius, Color color) {
 }
 
 void RenderGraphics::clear() {
-    Size s = getDrawableSize();
-    buffer = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA32, SDL_TEXTUREACCESS_TARGET, s.width, s.height);
-    SDL_SetRenderTarget(renderer, buffer);
+    // Memory leak using buffered texture
+//    Size s = getDrawableSize();
+//    buffer = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA32, SDL_TEXTUREACCESS_TARGET, s.width, s.height);
+//    SDL_SetRenderTarget(renderer, buffer);
     SDL_SetRenderDrawColor(renderer, WHITE.r, WHITE.g, WHITE.b, WHITE.a);
     SDL_RenderClear(renderer);
 }
 
 void RenderGraphics::update() {
     SDL_SetRenderTarget(renderer, NULL);
-    SDL_RenderCopy(renderer, buffer, NULL, NULL);
+    // Memory leak using buffered texture
+//    SDL_RenderCopy(renderer, buffer, NULL, NULL);
     SDL_RenderPresent(renderer);
 }
 
