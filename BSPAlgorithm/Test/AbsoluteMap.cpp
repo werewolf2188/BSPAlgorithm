@@ -6,6 +6,7 @@
 //
 
 #include <iostream>
+#include <cmath>
 #include "AbsoluteMap.h"
 #include "../Classes/Structs.h"
 #include "../Classes/Graphics.h"

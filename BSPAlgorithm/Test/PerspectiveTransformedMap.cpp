@@ -5,6 +5,7 @@
 //  Created by Enrique on 2/3/21.
 //
 
+#include <cmath>
 #include "PerspectiveTransformedMap.h"
 
 int cross(double x1, double y1, double x2, double y2) {

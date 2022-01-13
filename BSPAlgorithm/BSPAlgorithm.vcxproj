@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{72BA1923-66A1-4962-BD0B-85B4305367E6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Users\jenri\Projects\Games\BSPAlgorithm\BSPAlgorithm\Libraries\SDL2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\jenri\Projects\Games\BSPAlgorithm\BSPAlgorithm\Libraries\SDL2\lib\x86;$(LibraryPath)</LibraryPath>
+    <NMakeBuildCommandLine>make</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>make clean all</NMakeReBuildCommandLine>
+    <NMakeOutput>$(LocalDebuggerWorkingDirectory)obj\BSP.exe</NMakeOutput>
+    <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ClCompile>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="bsp\Loader.cpp" />
+    <ClCompile Include="bsp\MapSprite.cpp" />
+    <ClCompile Include="bsp\Player.cpp" />
+    <ClCompile Include="bsp\Sector.cpp" />
+    <ClCompile Include="bsp\Vector.cpp" />
+    <ClCompile Include="classes\Color.cpp" />
+    <ClCompile Include="classes\PollingGameLoop.cpp" />
+    <ClCompile Include="classes\RenderGraphics.cpp" />
+    <ClCompile Include="classes\SurfaceGraphics.cpp" />
+    <ClCompile Include="classes\UI.cpp" />
+    <ClCompile Include="classes\UserInputGameLoop.cpp" />
+    <ClCompile Include="classes\Window.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="test\AbsoluteMap.cpp" />
+    <ClCompile Include="test\Boundaries.cpp" />
+    <ClCompile Include="test\PerspectiveTransformedMap.cpp" />
+    <ClCompile Include="test\Player.cpp" />
+    <ClCompile Include="test\TransformedMap.cpp" />
+    <ClCompile Include="test\Wall.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bsp\Constants.h" />
+    <ClInclude Include="bsp\Loader.h" />
+    <ClInclude Include="bsp\MapSprite.h" />
+    <ClInclude Include="bsp\BSPMath.h" />
+    <ClInclude Include="bsp\Player.h" />
+    <ClInclude Include="bsp\Sector.h" />
+    <ClInclude Include="bsp\Vector.h" />
+    <ClInclude Include="classes\GameLoop.h" />
+    <ClInclude Include="classes\Graphics.h" />
+    <ClInclude Include="classes\Keyboard.h" />
+    <ClInclude Include="classes\Mouse.h" />
+    <ClInclude Include="classes\PollingGameLoop.h" />
+    <ClInclude Include="classes\RenderGraphics.h" />
+    <ClInclude Include="classes\Sprite.h" />
+    <ClInclude Include="classes\Structs.h" />
+    <ClInclude Include="classes\SurfaceGraphics.h" />
+    <ClInclude Include="classes\UI.h" />
+    <ClInclude Include="classes\UserInputGameLoop.h" />
+    <ClInclude Include="classes\Window.h" />
+    <ClInclude Include="imguisdl\include\imconfig.h" />
+    <ClInclude Include="imguisdl\include\imgui.h" />
+    <ClInclude Include="ImGUISDL\include\imgui_impl_sdl.h" />
+    <ClInclude Include="ImGUISDL\include\imgui_impl_sdlrenderer.h" />
+    <ClInclude Include="imguisdl\include\imgui_internal.h" />
+    <ClInclude Include="imguisdl\include\imgui_sdl.h" />
+    <ClInclude Include="imguisdl\include\imgui_single_file.h" />
+    <ClInclude Include="imguisdl\include\imgui_stdlib.h" />
+    <ClInclude Include="imguisdl\include\imstb_rectpack.h" />
+    <ClInclude Include="imguisdl\include\imstb_textedit.h" />
+    <ClInclude Include="imguisdl\include\imstb_truetype.h" />
+    <ClInclude Include="test\AbsoluteMap.h" />
+    <ClInclude Include="test\Boundaries.h" />
+    <ClInclude Include="test\PerspectiveTransformedMap.h" />
+    <ClInclude Include="test\Player.h" />
+    <ClInclude Include="test\TransformedMap.h" />
+    <ClInclude Include="test\Wall.h" />
+    <ClInclude Include="utils\CQueue.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
