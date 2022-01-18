@@ -12,12 +12,16 @@ In this project, you can see how I translated that video in a small engine to em
 
 I've also added ImGUI for SDL in the project, and there's no need to install since the dynamic library is embedded in the project already.
 
-There's only two requirements you can see it in action.
+There are a few requirements you can see it in action.
 
 ## Requirements.
 
-- It is needed for the user to install SDL before running this. You can find it [here](https://www.libsdl.org)
-- This project was developed in Xcode and in a Mac. It does not have a makefile nor a VS solution or anything that could be useful for other OS. In fact, the Xcode project installs the libImGUISDL.dylib where it belongs in Mac (inside `/usr/local/lib`). Feel free to make it work in other OS, since it only uses standard c++ and SDL.
+### Mac.
+- It is needed for the user to install SDL before running this. You can find it [here](https://www.libsdl.org). It should be inside `/usr/local/lib`
+
+### Windows.
+- Install Clang with GCC (MinGW is the option you will want). Don't forget to rename the MinGW make to make!
+- Optional: Visual studio to open the solution file. Otherwise, just use `make` to run the compiler/linker.
 
 ## Contents
 
