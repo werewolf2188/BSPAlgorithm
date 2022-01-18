@@ -67,7 +67,6 @@
 		C236EAAE25D252B700ADFCDE /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		C236EAAF25D252B700ADFCDE /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		C24B678D25D4E1390021737F /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		C24B678F25D4E4B60021737F /* Math.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Math.h; sourceTree = "<group>"; };
 		C2596627268D666E00BD03C1 /* CQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQueue.h; sourceTree = "<group>"; };
 		C260903425C5D1E700647596 /* Boundaries.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Boundaries.cpp; sourceTree = "<group>"; };
 		C260903525C5D1E700647596 /* Boundaries.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Boundaries.h; sourceTree = "<group>"; };
@@ -102,6 +101,7 @@
 		C2DDB10425BD0A5400BB5E41 /* SurfaceGraphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurfaceGraphics.h; sourceTree = "<group>"; };
 		C2EB2B61263CD38100CEDE89 /* PollingGameLoop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PollingGameLoop.cpp; sourceTree = "<group>"; };
 		C2EB2B62263CD38100CEDE89 /* PollingGameLoop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PollingGameLoop.h; sourceTree = "<group>"; };
+		C2F244A92797407D009AE834 /* BSPMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSPMath.h; sourceTree = "<group>"; };
 		C2FE96AE25D23BFA0026F309 /* Loader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Loader.cpp; sourceTree = "<group>"; };
 		C2FE96AF25D23BFA0026F309 /* Loader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Loader.h; sourceTree = "<group>"; };
 		C2FE96B325D23C1E0026F309 /* map-clear.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "map-clear.txt"; sourceTree = "<group>"; };
@@ -235,12 +235,12 @@
 		C2FE96AD25D23BD00026F309 /* BSP */ = {
 			isa = PBXGroup;
 			children = (
+				C2F244A92797407D009AE834 /* BSPMath.h */,
 				C24B678D25D4E1390021737F /* Constants.h */,
 				C2FE96AF25D23BFA0026F309 /* Loader.h */,
 				C2FE96AE25D23BFA0026F309 /* Loader.cpp */,
 				C291D9D4260D890F0019872B /* MapSprite.h */,
 				C291D9D3260D890F0019872B /* MapSprite.cpp */,
-				C24B678F25D4E4B60021737F /* Math.h */,
 				C236EAAF25D252B700ADFCDE /* Player.h */,
 				C236EAAE25D252B700ADFCDE /* Player.cpp */,
 				C2CA869D25D3979500264EA4 /* Sector.h */,
