@@ -5,6 +5,7 @@
 //  Created by Enrique on 1/31/21.
 //
 
+#include <cmath>
 #include "TransformedMap.h"
 
 TransformedMapSprite::TransformedMapSprite(Player player, Wall wall):

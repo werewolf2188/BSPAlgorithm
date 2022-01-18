@@ -21,11 +21,15 @@
 #include "Classes/PollingGameLoop.h"
 #include "BSP/Constants.h"
 #include "BSP/Loader.h"
-#include "BSP/Math.h"
+#include "BSP/BSPMath.h"
 #include "BSP/MapSprite.h"
 #endif
 
+#if defined(__APPLE__) && defined(__MACH__)
 int main(int argc, const char * argv[]) {
+#else
+int main(int argc, char* argv[]) {
+#endif
     
 #if TEST
     GameLoop *gameLoop = new UserInputGameLoop;

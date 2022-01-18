@@ -29,7 +29,9 @@ void UserInputGameLoop::start(Graphics* graphics, UI* ui) {
     bool quit = false;
     bool needRender = true;
     while (!quit) {
-        ui->getUserInputHandler();
+        if (ui) {
+            ui->getUserInputHandler();
+        }
         while (SDL_PollEvent(&e)) {
             if (e.type == SDL_QUIT) {
                 quit = true;

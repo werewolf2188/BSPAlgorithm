@@ -20,7 +20,7 @@ private:
     SDL_Renderer *renderer = NULL;
     SDL_Window *window = NULL;
     GameLoop *gameLoop;
-    UI *ui;
+    UI *ui = NULL;
 
     void initialize_window(void);
     void initialize_graphics(void);

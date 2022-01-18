@@ -10,7 +10,13 @@
 #include <SDL2/SDL.h>
 
 #include "../ImGUISDL/include/imgui.h"
+#if defined(__APPLE__) && defined(__MACH__)
 #include "../ImGUISDL/include/imgui_sdl.h"
+#else
+#include "../ImGUISDL/include/imgui_impl_sdl.h"
+#include "../ImGUISDL/include/imgui_impl_sdlrenderer.h"
+#endif
+//
 
 #include <sstream>
 #include <random>
@@ -40,19 +46,32 @@ namespace UniqueIdentifier {
 }
 
 UI::UI() {
+#if defined(__APPLE__) && defined(__MACH__)
     IMGUI_CHECKVERSION();
+#endif
     ImGui::CreateContext();
     ImGui::StyleColorsDark();
 }
 
 UI::~UI() {
+#if defined(__APPLE__) && defined(__MACH__)
     ImGuiSDL::Deinitialize();
+#else
+    ImGui_ImplSDLRenderer_Shutdown();
+    ImGui_ImplSDL2_Shutdown();
+#endif
     ImGui::DestroyContext();
 }
 
-void UI::initialize(SDL_Renderer* renderer, Size s) {
+void UI::initialize(SDL_Window* window, SDL_Renderer* renderer, Size s) {
+    this->window = window;
     ImGui::CreateContext();
+#if defined(__APPLE__) && defined(__MACH__)
     ImGuiSDL::Initialize(renderer, s.width, s.height);
+#else
+    ImGui_ImplSDL2_InitForSDLRenderer(window);
+    ImGui_ImplSDLRenderer_Init(renderer);
+#endif    
 }
 
 void UI::getUserInputHandler() {
@@ -62,7 +81,11 @@ void UI::getUserInputHandler() {
 void UI::refresh() {
     assert(frames.size() == 0);
     ImGui::Render();
+#if defined(__APPLE__) && defined(__MACH__)
     ImGuiSDL::Render(ImGui::GetDrawData());
+#else
+    ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());
+#endif    
 }
 
 void UI::showDemoScreen() {
@@ -74,6 +97,11 @@ void UI::showDemoScreen() {
 UIFrameContext UI::BeginFrame(const char* name) {
     UIFrameContext context = UniqueIdentifier::generate_hex(16);
     frames.push_back(context);
+#if defined(__APPLE__) && defined(__MACH__)
+#else
+    ImGui_ImplSDLRenderer_NewFrame();
+    ImGui_ImplSDL2_NewFrame(this->window);
+#endif
     ImGui::NewFrame();
     ImGui::Begin(name, NULL, ImGuiWindowFlags_AlwaysAutoResize);
     

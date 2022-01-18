@@ -6,7 +6,7 @@
 //
 
 #include "Vector.h"
-#include "Math.h"
+#include "BSPMath.h"
 
 Vector2 * createVector2(float x, float y) {
     Vector2 * vertex = new Vector2;

@@ -35,7 +35,9 @@ void PollingGameLoop::start(Graphics* graphics, UI* ui) {
     KeyEvent * keyEvent = nullptr;
 
     while (!quit) {
-        ui->getUserInputHandler();
+        if (ui) {
+            ui->getUserInputHandler();
+        }
         // Render first
         this->graphics->clear();
         bool needUI = false;
@@ -45,7 +47,7 @@ void PollingGameLoop::start(Graphics* graphics, UI* ui) {
                 needUI = sprite->onUI(ui);
             }
         }
-        if (needUI) {
+        if (needUI && ui) {
             ui->refresh();
         }
         this->graphics->update();

@@ -36,7 +36,7 @@ void Window::initialize_graphics() {
 
         SDL_DisplayMode mode = { SDL_PIXELFORMAT_UNKNOWN, 0, 0, 0, 0 };
         SDL_GetCurrentDisplayMode(0, &mode);
-        ui->initialize(renderer, { mode.w, mode.h });
+        ui->initialize(window, renderer, { mode.w, mode.h });
 #else
         surface = SDL_GetWindowSurface(window);
         SDL_FillRect(surface, NULL, SDL_MapRGB( surface->format, WHITE.r, WHITE.g, WHITE.b));

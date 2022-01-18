@@ -15,7 +15,8 @@
 
 typedef std::string UIFrameContext;
 
-class SDL_Renderer;
+struct SDL_Renderer;
+struct SDL_Window;
 struct ImGuiIO;
 //
 // The library needs to be in /usr/local/lib/
@@ -25,12 +26,13 @@ struct ImGuiIO;
 class UI {
 private:
     ImGuiIO* io;
+    SDL_Window* window;
     std::vector<UIFrameContext> frames;
 public:
     UI();
     ~UI();
 
-    void initialize(SDL_Renderer* renderer, Size s);
+    void initialize(SDL_Window* window, SDL_Renderer* renderer, Size s);
     void getUserInputHandler();
     void showDemoScreen();
     void refresh();

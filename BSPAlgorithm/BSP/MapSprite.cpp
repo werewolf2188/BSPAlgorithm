@@ -5,9 +5,10 @@
 //  Created by Enrique on 3/25/21.
 //
 
+#include <cmath>
 #include "MapSprite.h"
 #include "Constants.h"
-#include "Math.h"
+#include "BSPMath.h"
 #include <iostream>
 #include "../Utils/CQueue.h"
 
